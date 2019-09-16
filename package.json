@@ -1,0 +1,31 @@
+{
+  "name": "irish-public-transport",
+  "version": "1.0.0",
+  "description": "Node.js module with a lot of utility functions to get data for Irish public transport (Irish Rail, Luas, Irish bus)",
+  "main": "index.js",
+  "dependencies": {
+    "got": "^9.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.4.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lmammino/irish-public-transport.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lmammino/irish-public-transport/issues"
+  },
+  "homepage": "https://github.com/lmammino/irish-public-transport#readme"
+}
