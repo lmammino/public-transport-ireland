@@ -1,42 +1,21 @@
 'use strict'
 
-const got = require('got')
+const soap = require('soap')
 
-const GET_ROUTES_VIA_SERVICE_URL = 'http://www.dublinbus.ie/Templates/public/RoutePlannerService/RTPIWebServiceProxy.asmx/GetRoutesViaService'
+const WSDL_URL = 'http://rtpi.dublinbus.ie/DublinBusRTPIService.asmx?WSDL'
 
-async function getAllRoutes () {
-  async function getPages (from = 0, increment = 50, stops = []) {
-    const response = await got.post(
-      GET_ROUTES_VIA_SERVICE_URL,
-      {
-        json: true,
-        body: {
-          context: {
-            Text: '',
-            NumberOfItems: from,
-            Filter: '',
-            MinStringLength: 1
-          }
-        }
-      }
-    )
+async function getRealTimeInfoForStop (client, stopId) {
+  const [result] = await client.GetRealTimeStopDataAsync({ stopId, forceRefresh: true })
+  const stopData = result.GetRealTimeStopDataResult.diffgram.DocumentElement.StopData
 
-    if (response.body.d === null) {
-      return stops
-    }
-
-    response.body.d.Items.forEach(stop => stops.push(stop.Value))
-
-    if (response.body.d.EndOfItems) {
-      return stops
-    }
-
-    return getPages(from + increment, increment, stops)
-  }
-
-  return getPages()
+  const output = stopData.map(stop => `${stop.MonitoredVehicleJourney_PublishedLineName} - ${stop.MonitoredVehicleJourney_DestinationName} - ${stop.MonitoredCall_ExpectedArrivalTime}`)
+  console.log(output.join('\n'))
 }
 
-module.exports = {
-  getAllRoutes
+async function main () {
+  const client = await soap.createClientAsync(WSDL_URL)
+  const stopId = Number(process.argv[2])
+  getRealTimeInfoForStop(client, stopId)
 }
+
+main()

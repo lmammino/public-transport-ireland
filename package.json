@@ -4,7 +4,8 @@
   "description": "Node.js module with a lot of utility functions to get data for Irish public transport (Irish Rail, Luas, Irish bus)",
   "main": "index.js",
   "dependencies": {
-    "got": "^9.6.0"
+    "got": "^9.6.0",
+    "soap": "^0.29.0"
   },
   "devDependencies": {
     "eslint": "^6.4.0",
@@ -21,9 +22,18 @@
     "type": "git",
     "url": "git+https://github.com/lmammino/irish-public-transport.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "ireland",
+    "transport",
+    "real time",
+    "bus",
+    "train",
+    "dublin bus",
+    "irish rail",
+    "luas"
+  ],
+  "author": "Luciano Mammino",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/lmammino/irish-public-transport/issues"
   },
