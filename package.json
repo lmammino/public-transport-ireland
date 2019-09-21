@@ -2,21 +2,32 @@
   "name": "irish-public-transport",
   "version": "1.0.0",
   "description": "Node.js module with a lot of utility functions to get data for Irish public transport (Irish Rail, Luas, Irish bus)",
-  "main": "index.js",
+  "main": "dist/index.js",
   "dependencies": {
     "got": "^9.6.0",
     "soap": "^0.29.0"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "@typescript-eslint/eslint-plugin": "^2.3.0",
+    "@typescript-eslint/parser": "^2.3.0",
     "eslint": "^6.4.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1"
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^24.9.0",
+    "nock": "^11.3.5",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.3"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run test:lint && npm run test:types && npm run test:unit",
+    "test:lint": "eslint src/**/*.ts",
+    "test:types": "tsc --noEmit",
+    "test:unit": "jest",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",

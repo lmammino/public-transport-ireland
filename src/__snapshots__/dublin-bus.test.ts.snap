@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It should get all stops 1`] = `
+Array [
+  Object {
+    "description": "Ballymun Road, Nursing Home",
+    "id": 22,
+    "latitude": 53.399092,
+    "longitude": -6.264086,
+  },
+  Object {
+    "description": "Ballymun Road, Nursing Home",
+    "id": 17,
+    "latitude": 53.399107,
+    "longitude": -6.263668,
+  },
+]
+`;

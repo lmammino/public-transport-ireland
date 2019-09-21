@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <GetAllDestinationsResponse xmlns="http://dublinbus.ie/">
+      <GetAllDestinationsResult>
+        <Destinations>
+          <Destination>
+            <StopNumber>22</StopNumber>
+            <Type></Type>
+            <Longitude>-6.264086</Longitude>
+            <Latitude>53.399092</Latitude>
+            <Description>Ballymun Road, Nursing Home</Description>
+            <Routes xsi:nil="true" />
+          </Destination>
+          <Destination>
+            <StopNumber>17</StopNumber>
+            <Type></Type>
+            <Longitude>-6.263668</Longitude>
+            <Latitude>53.399107</Latitude>
+            <Description>Ballymun Road, Nursing Home</Description>
+            <Routes xsi:nil="true" />
+          </Destination>
+        </Destinations>
+      </GetAllDestinationsResult>
+    </GetAllDestinationsResponse>
+  </soap:Body>
+</soap:Envelope>

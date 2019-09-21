@@ -1,0 +1,904 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dublinbus.ie/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://dublinbus.ie/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dublinbus.ie/">
+      <s:element name="TestService">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TestServiceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRealTimeStopData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="stopId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="forceRefresh" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRealTimeStopDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRealTimeStopDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRealTimeStopData_ForceLineNoteVisit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="stopId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="forceRefresh" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="forceLineNoteVisit" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRealTimeStopData_ForceLineNoteVisitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRealTimeStopData_ForceLineNoteVisitResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRoutes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="filter" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRoutesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRoutesResult" type="tns:RoutesResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RoutesResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Routes" type="tns:ArrayOfRoute" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRoute">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Route" nillable="true" type="tns:Route" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Route">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Direction" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SeqNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Towards" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="From" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Destinations" nillable="true" type="tns:Destination" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsStaged" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="OutboundPattern" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OutboundFrom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OutboundTowards" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OutboundVia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InboundPattern" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InboundFrom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InboundTowards" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InboundVia" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsXpresso" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsNitelink" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsMinimumFare" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Destination">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StopNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Longitude" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Latitude" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Routes" type="tns:ArrayOfRoute" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRoutesIncNiteLink">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="filter" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRoutesIncNiteLinkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRoutesIncNiteLinkResult" type="tns:RoutesResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRoutesIncNiteLink_MobileFareCalc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="filter" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRoutesIncNiteLink_MobileFareCalcResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRoutesIncNiteLink_MobileFareCalcResult" type="tns:RoutesResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDestinations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="filter" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDestinationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDestinationsResult" type="tns:DestinationsResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DestinationsResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Destinations" type="tns:ArrayOfDestination" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDestination">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Destination" nillable="true" type="tns:Destination" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAllDestinations">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllDestinationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllDestinationsResult" type="tns:DestinationsResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStopDataByAddress">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStopDataByAddressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStopDataByAddressResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStopDataByRouteAndDirection">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="route" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="direction" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStopDataByRouteAndDirectionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStopDataByRouteAndDirectionResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStopDataByRouteAndDirection_MobileFareCalc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="route" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="direction" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStopDataByRouteAndDirection_MobileFareCalcResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStopDataByRouteAndDirection_MobileFareCalcResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStopDataByRoute">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="route" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStopDataByRouteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStopDataByRouteResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRoutesServicedByStopNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="stopId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRoutesServicedByStopNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRoutesServicedByStopNumberResult" type="tns:ArrayOfRoute" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartTimer">
+        <s:complexType />
+      </s:element>
+      <s:element name="StartTimerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StartTimerResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StopTimer">
+        <s:complexType />
+      </s:element>
+      <s:element name="StopTimerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StopTimerResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrentSettings">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCurrentSettingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCurrentSettingsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetCurrentSettings">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="values" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCurrentSettingsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="postXMLData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="destinationUrl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="postXMLDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="postXMLDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClearCacheItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClearCacheItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ClearCacheItemResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TestServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:TestService" />
+  </wsdl:message>
+  <wsdl:message name="TestServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:TestServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRealTimeStopDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRealTimeStopData" />
+  </wsdl:message>
+  <wsdl:message name="GetRealTimeStopDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRealTimeStopDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRealTimeStopData_ForceLineNoteVisitSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRealTimeStopData_ForceLineNoteVisit" />
+  </wsdl:message>
+  <wsdl:message name="GetRealTimeStopData_ForceLineNoteVisitSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRealTimeStopData_ForceLineNoteVisitResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRoutesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRoutes" />
+  </wsdl:message>
+  <wsdl:message name="GetRoutesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRoutesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRoutesIncNiteLinkSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRoutesIncNiteLink" />
+  </wsdl:message>
+  <wsdl:message name="GetRoutesIncNiteLinkSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRoutesIncNiteLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRoutesIncNiteLink_MobileFareCalcSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRoutesIncNiteLink_MobileFareCalc" />
+  </wsdl:message>
+  <wsdl:message name="GetRoutesIncNiteLink_MobileFareCalcSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRoutesIncNiteLink_MobileFareCalcResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDestinationsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDestinations" />
+  </wsdl:message>
+  <wsdl:message name="GetDestinationsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDestinationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllDestinationsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllDestinations" />
+  </wsdl:message>
+  <wsdl:message name="GetAllDestinationsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllDestinationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStopDataByAddressSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStopDataByAddress" />
+  </wsdl:message>
+  <wsdl:message name="GetStopDataByAddressSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStopDataByAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStopDataByRouteAndDirectionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStopDataByRouteAndDirection" />
+  </wsdl:message>
+  <wsdl:message name="GetStopDataByRouteAndDirectionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStopDataByRouteAndDirectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStopDataByRouteAndDirection_MobileFareCalcSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStopDataByRouteAndDirection_MobileFareCalc" />
+  </wsdl:message>
+  <wsdl:message name="GetStopDataByRouteAndDirection_MobileFareCalcSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStopDataByRouteAndDirection_MobileFareCalcResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStopDataByRouteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStopDataByRoute" />
+  </wsdl:message>
+  <wsdl:message name="GetStopDataByRouteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStopDataByRouteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRoutesServicedByStopNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRoutesServicedByStopNumber" />
+  </wsdl:message>
+  <wsdl:message name="GetRoutesServicedByStopNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRoutesServicedByStopNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartTimerSoapIn">
+    <wsdl:part name="parameters" element="tns:StartTimer" />
+  </wsdl:message>
+  <wsdl:message name="StartTimerSoapOut">
+    <wsdl:part name="parameters" element="tns:StartTimerResponse" />
+  </wsdl:message>
+  <wsdl:message name="StopTimerSoapIn">
+    <wsdl:part name="parameters" element="tns:StopTimer" />
+  </wsdl:message>
+  <wsdl:message name="StopTimerSoapOut">
+    <wsdl:part name="parameters" element="tns:StopTimerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentSettingsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrentSettings" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentSettingsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrentSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetCurrentSettingsSoapIn">
+    <wsdl:part name="parameters" element="tns:SetCurrentSettings" />
+  </wsdl:message>
+  <wsdl:message name="SetCurrentSettingsSoapOut">
+    <wsdl:part name="parameters" element="tns:SetCurrentSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="postXMLDataSoapIn">
+    <wsdl:part name="parameters" element="tns:postXMLData" />
+  </wsdl:message>
+  <wsdl:message name="postXMLDataSoapOut">
+    <wsdl:part name="parameters" element="tns:postXMLDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ClearCacheItemSoapIn">
+    <wsdl:part name="parameters" element="tns:ClearCacheItem" />
+  </wsdl:message>
+  <wsdl:message name="ClearCacheItemSoapOut">
+    <wsdl:part name="parameters" element="tns:ClearCacheItemResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DublinBusRTPIServiceSoap">
+    <wsdl:operation name="TestService">
+      <wsdl:input message="tns:TestServiceSoapIn" />
+      <wsdl:output message="tns:TestServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRealTimeStopData">
+      <wsdl:input message="tns:GetRealTimeStopDataSoapIn" />
+      <wsdl:output message="tns:GetRealTimeStopDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRealTimeStopData_ForceLineNoteVisit">
+      <wsdl:input message="tns:GetRealTimeStopData_ForceLineNoteVisitSoapIn" />
+      <wsdl:output message="tns:GetRealTimeStopData_ForceLineNoteVisitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoutes">
+      <wsdl:input message="tns:GetRoutesSoapIn" />
+      <wsdl:output message="tns:GetRoutesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoutesIncNiteLink">
+      <wsdl:input message="tns:GetRoutesIncNiteLinkSoapIn" />
+      <wsdl:output message="tns:GetRoutesIncNiteLinkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoutesIncNiteLink_MobileFareCalc">
+      <wsdl:input message="tns:GetRoutesIncNiteLink_MobileFareCalcSoapIn" />
+      <wsdl:output message="tns:GetRoutesIncNiteLink_MobileFareCalcSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDestinations">
+      <wsdl:input message="tns:GetDestinationsSoapIn" />
+      <wsdl:output message="tns:GetDestinationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDestinations">
+      <wsdl:input message="tns:GetAllDestinationsSoapIn" />
+      <wsdl:output message="tns:GetAllDestinationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStopDataByAddress">
+      <wsdl:input message="tns:GetStopDataByAddressSoapIn" />
+      <wsdl:output message="tns:GetStopDataByAddressSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStopDataByRouteAndDirection">
+      <wsdl:input message="tns:GetStopDataByRouteAndDirectionSoapIn" />
+      <wsdl:output message="tns:GetStopDataByRouteAndDirectionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStopDataByRouteAndDirection_MobileFareCalc">
+      <wsdl:input message="tns:GetStopDataByRouteAndDirection_MobileFareCalcSoapIn" />
+      <wsdl:output message="tns:GetStopDataByRouteAndDirection_MobileFareCalcSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStopDataByRoute">
+      <wsdl:input message="tns:GetStopDataByRouteSoapIn" />
+      <wsdl:output message="tns:GetStopDataByRouteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoutesServicedByStopNumber">
+      <wsdl:input message="tns:GetRoutesServicedByStopNumberSoapIn" />
+      <wsdl:output message="tns:GetRoutesServicedByStopNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StartTimer">
+      <wsdl:input message="tns:StartTimerSoapIn" />
+      <wsdl:output message="tns:StartTimerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StopTimer">
+      <wsdl:input message="tns:StopTimerSoapIn" />
+      <wsdl:output message="tns:StopTimerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentSettings">
+      <wsdl:input message="tns:GetCurrentSettingsSoapIn" />
+      <wsdl:output message="tns:GetCurrentSettingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentSettings">
+      <wsdl:input message="tns:SetCurrentSettingsSoapIn" />
+      <wsdl:output message="tns:SetCurrentSettingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="postXMLData">
+      <wsdl:input message="tns:postXMLDataSoapIn" />
+      <wsdl:output message="tns:postXMLDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearCacheItem">
+      <wsdl:input message="tns:ClearCacheItemSoapIn" />
+      <wsdl:output message="tns:ClearCacheItemSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DublinBusRTPIServiceSoap" type="tns:DublinBusRTPIServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TestService">
+      <soap:operation soapAction="http://dublinbus.ie/TestService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRealTimeStopData">
+      <soap:operation soapAction="http://dublinbus.ie/GetRealTimeStopData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRealTimeStopData_ForceLineNoteVisit">
+      <soap:operation soapAction="http://dublinbus.ie/GetRealTimeStopData_ForceLineNoteVisit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoutes">
+      <soap:operation soapAction="http://dublinbus.ie/GetRoutes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoutesIncNiteLink">
+      <soap:operation soapAction="http://dublinbus.ie/GetRoutesIncNiteLink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoutesIncNiteLink_MobileFareCalc">
+      <soap:operation soapAction="http://dublinbus.ie/GetRoutesIncNiteLink_MobileFareCalc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDestinations">
+      <soap:operation soapAction="http://dublinbus.ie/GetDestinations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDestinations">
+      <soap:operation soapAction="http://dublinbus.ie/GetAllDestinations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStopDataByAddress">
+      <soap:operation soapAction="http://dublinbus.ie/GetStopDataByAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStopDataByRouteAndDirection">
+      <soap:operation soapAction="http://dublinbus.ie/GetStopDataByRouteAndDirection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStopDataByRouteAndDirection_MobileFareCalc">
+      <soap:operation soapAction="http://dublinbus.ie/GetStopDataByRouteAndDirection_MobileFareCalc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStopDataByRoute">
+      <soap:operation soapAction="http://dublinbus.ie/GetStopDataByRoute" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoutesServicedByStopNumber">
+      <soap:operation soapAction="http://dublinbus.ie/GetRoutesServicedByStopNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartTimer">
+      <soap:operation soapAction="http://dublinbus.ie/StartTimer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopTimer">
+      <soap:operation soapAction="http://dublinbus.ie/StopTimer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentSettings">
+      <soap:operation soapAction="http://dublinbus.ie/GetCurrentSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentSettings">
+      <soap:operation soapAction="http://dublinbus.ie/SetCurrentSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postXMLData">
+      <soap:operation soapAction="http://dublinbus.ie/postXMLData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearCacheItem">
+      <soap:operation soapAction="http://dublinbus.ie/ClearCacheItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DublinBusRTPIServiceSoap12" type="tns:DublinBusRTPIServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TestService">
+      <soap12:operation soapAction="http://dublinbus.ie/TestService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRealTimeStopData">
+      <soap12:operation soapAction="http://dublinbus.ie/GetRealTimeStopData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRealTimeStopData_ForceLineNoteVisit">
+      <soap12:operation soapAction="http://dublinbus.ie/GetRealTimeStopData_ForceLineNoteVisit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoutes">
+      <soap12:operation soapAction="http://dublinbus.ie/GetRoutes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoutesIncNiteLink">
+      <soap12:operation soapAction="http://dublinbus.ie/GetRoutesIncNiteLink" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoutesIncNiteLink_MobileFareCalc">
+      <soap12:operation soapAction="http://dublinbus.ie/GetRoutesIncNiteLink_MobileFareCalc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDestinations">
+      <soap12:operation soapAction="http://dublinbus.ie/GetDestinations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDestinations">
+      <soap12:operation soapAction="http://dublinbus.ie/GetAllDestinations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStopDataByAddress">
+      <soap12:operation soapAction="http://dublinbus.ie/GetStopDataByAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStopDataByRouteAndDirection">
+      <soap12:operation soapAction="http://dublinbus.ie/GetStopDataByRouteAndDirection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStopDataByRouteAndDirection_MobileFareCalc">
+      <soap12:operation soapAction="http://dublinbus.ie/GetStopDataByRouteAndDirection_MobileFareCalc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStopDataByRoute">
+      <soap12:operation soapAction="http://dublinbus.ie/GetStopDataByRoute" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoutesServicedByStopNumber">
+      <soap12:operation soapAction="http://dublinbus.ie/GetRoutesServicedByStopNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartTimer">
+      <soap12:operation soapAction="http://dublinbus.ie/StartTimer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopTimer">
+      <soap12:operation soapAction="http://dublinbus.ie/StopTimer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentSettings">
+      <soap12:operation soapAction="http://dublinbus.ie/GetCurrentSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentSettings">
+      <soap12:operation soapAction="http://dublinbus.ie/SetCurrentSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postXMLData">
+      <soap12:operation soapAction="http://dublinbus.ie/postXMLData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearCacheItem">
+      <soap12:operation soapAction="http://dublinbus.ie/ClearCacheItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DublinBusRTPIService">
+    <wsdl:port name="DublinBusRTPIServiceSoap" binding="tns:DublinBusRTPIServiceSoap">
+      <soap:address location="http://rtpi.dublinbus.ie/DublinBusRTPIService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DublinBusRTPIServiceSoap12" binding="tns:DublinBusRTPIServiceSoap12">
+      <soap12:address location="http://rtpi.dublinbus.ie/DublinBusRTPIService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

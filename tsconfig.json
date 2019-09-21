@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "module": "commonjs",
+    "outDir": "./dist",
+    "sourceMap": true,
+    "types" : [
+      "node",
+      "jest"
+    ],
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "src/**/*test.ts",
+    "src/coverage"
+  ],
+}
