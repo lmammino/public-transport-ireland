@@ -58,7 +58,7 @@ interface Stop {
 /**
  * Get real time informationf or a given bus stop
  */
-export async function getRealTimeInfoForStop (stopId: number): Promise<Array<RealtimeData>> {
+export async function getRealTimeInfo (stopId: number): Promise<Array<RealtimeData>> {
   const client: SoapClient = await clientPromise
 
   const [result] = await client.GetRealTimeStopDataAsync({ stopId, forceRefresh: true })

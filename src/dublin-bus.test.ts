@@ -40,6 +40,6 @@ test('It should get all stops', async function () {
 })
 
 test('It should get real time information for a stop', async function () {
-  const realTimeInfo = await dublinBus.getRealTimeInfoForStop(22)
+  const realTimeInfo = await dublinBus.getRealTimeInfo(22)
   expect(realTimeInfo).toMatchSnapshot()
 })
