@@ -25,16 +25,19 @@ stages:
         container: node12
         steps:
           - bash: |
+              npm install
               npm run test:unit
       - job: UnitJobNode10
         container: node10
         steps:
           - bash: |
+              npm install
               npm run test:unit
       - job: UnitJobNode8
         container: node8
         steps:
           - bash: |
+              npm install
               npm run test:unit
 
   - stage: Build
@@ -43,4 +46,5 @@ stages:
         container: node12
         steps:
           - bash: |
+              npm install
               npm run build
