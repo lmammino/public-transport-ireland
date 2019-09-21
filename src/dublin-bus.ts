@@ -1,5 +1,6 @@
 /* eslint camelcase: "off" */
 
+import { DateTime } from 'luxon'
 import { createClientAsync } from 'soap'
 
 const WSDL_URL = 'http://rtpi.dublinbus.ie/DublinBusRTPIService.asmx?WSDL'
@@ -15,9 +16,11 @@ interface GetRealTimeStopDataResponse {
     readonly diffgram: {
       readonly DocumentElement: {
         readonly StopData: Array<{
+          ServiceDelivery_ResponseTimestamp: string
           MonitoredVehicleJourney_PublishedLineName: string
           MonitoredVehicleJourney_DestinationName: string
           MonitoredCall_ExpectedArrivalTime: string
+          MonitoredCall_VehicleAtStop: string
         }>
       }
     }
@@ -45,7 +48,9 @@ interface SoapClient {
 interface RealtimeData {
   lineName: string
   destinationName: string
-  expectedArrivalTime: Date
+  expectedArrivalTime: string
+  arrivingInMinutes: number
+  vehicleAtStop: boolean
 }
 
 interface Stop {
@@ -64,11 +69,19 @@ export async function getRealTimeInfo (stopId: number): Promise<Array<RealtimeDa
   const [result] = await client.GetRealTimeStopDataAsync({ stopId, forceRefresh: true })
   const stopData = result.GetRealTimeStopDataResult.diffgram.DocumentElement.StopData
 
-  const realTimeData = stopData.map(stop => ({
-    lineName: stop.MonitoredVehicleJourney_PublishedLineName,
-    destinationName: stop.MonitoredVehicleJourney_DestinationName,
-    expectedArrivalTime: new Date(stop.MonitoredCall_ExpectedArrivalTime)
-  }))
+  const realTimeData : Array<RealtimeData> = stopData.map(stop => {
+    const requestTime = DateTime.fromISO(stop.ServiceDelivery_ResponseTimestamp, { zone: 'Europe/Dublin' })
+    const expectedArrivalTime = DateTime.fromISO(stop.MonitoredCall_ExpectedArrivalTime, { zone: 'Europe/Dublin' })
+    const arrivingInMinutes = Math.ceil(expectedArrivalTime.diff(requestTime, 'minutes').toObject().minutes)
+
+    return {
+      lineName: stop.MonitoredVehicleJourney_PublishedLineName,
+      destinationName: stop.MonitoredVehicleJourney_DestinationName,
+      expectedArrivalTime: expectedArrivalTime.toString(),
+      vehicleAtStop: stop.MonitoredCall_VehicleAtStop !== 'false',
+      arrivingInMinutes
+    }
+  })
 
   return realTimeData
 }

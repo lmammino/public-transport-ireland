@@ -71,9 +71,9 @@
               <MonitoredVehicleJourney_BlockRef>11004</MonitoredVehicleJourney_BlockRef>
               <MonitoredVehicleJourney_VehicleRef>44016</MonitoredVehicleJourney_VehicleRef>
               <MonitoredCall_VisitNumber>54</MonitoredCall_VisitNumber>
-              <MonitoredCall_VehicleAtStop>false</MonitoredCall_VehicleAtStop>
+              <MonitoredCall_VehicleAtStop>true</MonitoredCall_VehicleAtStop>
               <MonitoredCall_AimedArrivalTime>2019-09-21T17:21:47+01:00</MonitoredCall_AimedArrivalTime>
-              <MonitoredCall_ExpectedArrivalTime>2019-09-21T17:38:00+01:00</MonitoredCall_ExpectedArrivalTime>
+              <MonitoredCall_ExpectedArrivalTime>2019-09-21T17:21:33.927+01:00</MonitoredCall_ExpectedArrivalTime>
               <MonitoredCall_AimedDepartureTime>2019-09-21T17:21:47+01:00</MonitoredCall_AimedDepartureTime>
               <MonitoredCall_ExpectedDepartureTime>2019-09-21T17:38:00+01:00</MonitoredCall_ExpectedDepartureTime>
               <Timestamp>2019-09-21T17:21:33.993+01:00</Timestamp>
