@@ -1,22 +1,46 @@
-# Node.js
-# Build a general Node.js project with npm.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+resources:
+  containers:
+  - container: node12
+    image: node:12.10-stretch
+  - container: node10
+    image: node:10.16-stretch
+  - container: node8
+    image: node:8.16-stretch
 
-trigger:
-- master
+stages:
 
-pool:
-  vmImage: 'ubuntu-latest'
+  - stage: Lint
+    jobs:
+      - job: LintJob
+        container: node12
+        steps:
+          - script: |
+            npm install
+            npm run test:lint
+            npm run test:types
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '8.x'
-  displayName: 'Install Node.js'
+  - stage: Unit
+    jobs:
+      - job: UnitJobNode12
+        container: node12
+        steps:
+          - script: |
+            npm run test:unit
+      - job: UnitJobNode10
+        container: node10
+        steps:
+          - script: |
+            npm run test:unit
+      - job: UnitJobNode8
+        container: node8
+        steps:
+          - script: |
+            npm run test:unit
 
-- script: |
-    npm install
-    npm test
-    npm run build
-  displayName: 'npm install and build'
+  - stage: Build
+    jobs:
+      - job: BuildJob
+        container: node12
+        steps:
+          - script |
+            npm run build
