@@ -14,33 +14,33 @@ stages:
       - job: LintJob
         container: node12
         steps:
-          - script: |
-            npm install
-            npm run test:lint
-            npm run test:types
+          - bash: |
+              npm install
+              npm run test:lint
+              npm run test:types
 
   - stage: Unit
     jobs:
       - job: UnitJobNode12
         container: node12
         steps:
-          - script: |
-            npm run test:unit
+          - bash: |
+              npm run test:unit
       - job: UnitJobNode10
         container: node10
         steps:
-          - script: |
-            npm run test:unit
+          - bash: |
+              npm run test:unit
       - job: UnitJobNode8
         container: node8
         steps:
-          - script: |
-            npm run test:unit
+          - bash: |
+              npm run test:unit
 
   - stage: Build
     jobs:
       - job: BuildJob
         container: node12
         steps:
-          - script |
-            npm run build
+          - bash: |
+              npm run build
