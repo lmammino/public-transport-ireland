@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <soap:Body>
+    <GetRealTimeStopDataResponse xmlns="http://dublinbus.ie/">
+      <GetRealTimeStopDataResult>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="NewDataSet">
+          <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="StopData" msdata:UseCurrentLocale="true">
+            <xs:complexType>
+              <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="StopData">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="ServiceDelivery_ResponseTimestamp" type="xs:dateTime" minOccurs="0" />
+                      <xs:element name="ServiceDelivery_ProducerRef" type="xs:string" minOccurs="0" />
+                      <xs:element name="ServiceDelivery_Status" type="xs:boolean" minOccurs="0" />
+                      <xs:element name="ServiceDelivery_MoreData" type="xs:boolean" minOccurs="0" />
+                      <xs:element name="StopMonitoringDelivery_Version" type="xs:string" minOccurs="0" />
+                      <xs:element name="StopMonitoringDelivery_ResponseTimestamp" type="xs:dateTime" minOccurs="0" />
+                      <xs:element name="StopMonitoringDelivery_RequestMessageRef" type="xs:string" minOccurs="0" />
+                      <xs:element name="MonitoredStopVisit_RecordedAtTime" type="xs:dateTime" minOccurs="0" />
+                      <xs:element name="MonitoredStopVisit_MonitoringRef" type="xs:string" minOccurs="0" />
+                      <xs:element name="MonitoredVehicleJourney_LineRef" type="xs:string" minOccurs="0" />
+                      <xs:element name="MonitoredVehicleJourney_DirectionRef" type="xs:string" minOccurs="0" />
+                      <xs:element name="FramedVehicleJourneyRef_DataFrameRef" type="xs:string" minOccurs="0" />
+                      <xs:element name="FramedVehicleJourneyRef_DatedVehicleJourneyRef" type="xs:string" minOccurs="0" />
+                      <xs:element name="MonitoredVehicleJourney_PublishedLineName" type="xs:string" minOccurs="0" />
+                      <xs:element name="MonitoredVehicleJourney_OperatorRef" type="xs:string" minOccurs="0" />
+                      <xs:element name="MonitoredVehicleJourney_DestinationRef" type="xs:string" minOccurs="0" />
+                      <xs:element name="MonitoredVehicleJourney_DestinationName" type="xs:string" minOccurs="0" />
+                      <xs:element name="MonitoredVehicleJourney_Monitored" type="xs:boolean" minOccurs="0" />
+                      <xs:element name="MonitoredVehicleJourney_InCongestion" type="xs:boolean" minOccurs="0" />
+                      <xs:element name="MonitoredVehicleJourney_BlockRef" type="xs:string" minOccurs="0" />
+                      <xs:element name="MonitoredVehicleJourney_VehicleRef" type="xs:string" minOccurs="0" />
+                      <xs:element name="MonitoredCall_VisitNumber" type="xs:string" minOccurs="0" />
+                      <xs:element name="MonitoredCall_VehicleAtStop" type="xs:boolean" minOccurs="0" />
+                      <xs:element name="MonitoredCall_AimedArrivalTime" type="xs:dateTime" minOccurs="0" />
+                      <xs:element name="MonitoredCall_ExpectedArrivalTime" type="xs:dateTime" minOccurs="0" />
+                      <xs:element name="MonitoredCall_AimedDepartureTime" type="xs:dateTime" minOccurs="0" />
+                      <xs:element name="MonitoredCall_ExpectedDepartureTime" type="xs:dateTime" minOccurs="0" />
+                      <xs:element name="Timestamp" type="xs:dateTime" minOccurs="0" />
+                      <xs:element name="LineNote" type="xs:string" minOccurs="0" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
+            </xs:complexType>
+          </xs:element>
+        </xs:schema>
+        <diffgr:diffgram xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+          <DocumentElement xmlns="">
+            <StopData diffgr:id="StopData1" msdata:rowOrder="0">
+              <ServiceDelivery_ResponseTimestamp>2019-09-21T17:21:33.927+01:00</ServiceDelivery_ResponseTimestamp>
+              <ServiceDelivery_ProducerRef>bac</ServiceDelivery_ProducerRef>
+              <ServiceDelivery_Status>true</ServiceDelivery_Status>
+              <ServiceDelivery_MoreData>false</ServiceDelivery_MoreData>
+              <StopMonitoringDelivery_Version>1.0</StopMonitoringDelivery_Version>
+              <StopMonitoringDelivery_ResponseTimestamp>2019-09-21T17:21:33.927+01:00</StopMonitoringDelivery_ResponseTimestamp>
+              <StopMonitoringDelivery_RequestMessageRef />
+              <MonitoredStopVisit_RecordedAtTime>2019-09-21T17:21:33.927+01:00</MonitoredStopVisit_RecordedAtTime>
+              <MonitoredStopVisit_MonitoringRef>22</MonitoredStopVisit_MonitoringRef>
+              <MonitoredVehicleJourney_LineRef>11</MonitoredVehicleJourney_LineRef>
+              <MonitoredVehicleJourney_DirectionRef>Inbound</MonitoredVehicleJourney_DirectionRef>
+              <FramedVehicleJourneyRef_DataFrameRef>2019-09-21</FramedVehicleJourneyRef_DataFrameRef>
+              <FramedVehicleJourneyRef_DatedVehicleJourneyRef>10833</FramedVehicleJourneyRef_DatedVehicleJourneyRef>
+              <MonitoredVehicleJourney_PublishedLineName>11</MonitoredVehicleJourney_PublishedLineName>
+              <MonitoredVehicleJourney_OperatorRef>bac</MonitoredVehicleJourney_OperatorRef>
+              <MonitoredVehicleJourney_DestinationRef>6122</MonitoredVehicleJourney_DestinationRef>
+              <MonitoredVehicleJourney_DestinationName>St Pappin's Rd via Drumcondra</MonitoredVehicleJourney_DestinationName>
+              <MonitoredVehicleJourney_Monitored>true</MonitoredVehicleJourney_Monitored>
+              <MonitoredVehicleJourney_InCongestion>false</MonitoredVehicleJourney_InCongestion>
+              <MonitoredVehicleJourney_BlockRef>11004</MonitoredVehicleJourney_BlockRef>
+              <MonitoredVehicleJourney_VehicleRef>44016</MonitoredVehicleJourney_VehicleRef>
+              <MonitoredCall_VisitNumber>54</MonitoredCall_VisitNumber>
+              <MonitoredCall_VehicleAtStop>false</MonitoredCall_VehicleAtStop>
+              <MonitoredCall_AimedArrivalTime>2019-09-21T17:21:47+01:00</MonitoredCall_AimedArrivalTime>
+              <MonitoredCall_ExpectedArrivalTime>2019-09-21T17:38:00+01:00</MonitoredCall_ExpectedArrivalTime>
+              <MonitoredCall_AimedDepartureTime>2019-09-21T17:21:47+01:00</MonitoredCall_AimedDepartureTime>
+              <MonitoredCall_ExpectedDepartureTime>2019-09-21T17:38:00+01:00</MonitoredCall_ExpectedDepartureTime>
+              <Timestamp>2019-09-21T17:21:33.993+01:00</Timestamp>
+              <LineNote>Due to the closure of College Green on Sunday 22nd of September a number of diversions will be in place from 07:00-19:00. See dublinbus.ie for details.\n\nMar gheall ar dhúnadh Faiche an Choláiste Dé Domhnaigh 22ú Meán Fómhair beidh roinnt athstiúrtha i bhfeidhm ó 07:00-19:00. Féach dublinbus.ie le haghaidh sonraí.</LineNote>
+            </StopData>
+            <StopData diffgr:id="StopData2" msdata:rowOrder="1">
+              <ServiceDelivery_ResponseTimestamp>2019-09-21T17:21:33.927+01:00</ServiceDelivery_ResponseTimestamp>
+              <ServiceDelivery_ProducerRef>bac</ServiceDelivery_ProducerRef>
+              <ServiceDelivery_Status>true</ServiceDelivery_Status>
+              <ServiceDelivery_MoreData>false</ServiceDelivery_MoreData>
+              <StopMonitoringDelivery_Version>1.0</StopMonitoringDelivery_Version>
+              <StopMonitoringDelivery_ResponseTimestamp>2019-09-21T17:21:33.927+01:00</StopMonitoringDelivery_ResponseTimestamp>
+              <StopMonitoringDelivery_RequestMessageRef />
+              <MonitoredStopVisit_RecordedAtTime>2019-09-21T17:21:33.927+01:00</MonitoredStopVisit_RecordedAtTime>
+              <MonitoredStopVisit_MonitoringRef>22</MonitoredStopVisit_MonitoringRef>
+              <MonitoredVehicleJourney_LineRef>11</MonitoredVehicleJourney_LineRef>
+              <MonitoredVehicleJourney_DirectionRef>Inbound</MonitoredVehicleJourney_DirectionRef>
+              <FramedVehicleJourneyRef_DataFrameRef>2019-09-21</FramedVehicleJourneyRef_DataFrameRef>
+              <FramedVehicleJourneyRef_DatedVehicleJourneyRef>10845</FramedVehicleJourneyRef_DatedVehicleJourneyRef>
+              <MonitoredVehicleJourney_PublishedLineName>11</MonitoredVehicleJourney_PublishedLineName>
+              <MonitoredVehicleJourney_OperatorRef>bac</MonitoredVehicleJourney_OperatorRef>
+              <MonitoredVehicleJourney_DestinationRef>6122</MonitoredVehicleJourney_DestinationRef>
+              <MonitoredVehicleJourney_DestinationName>St Pappin's Rd via Drumcondra</MonitoredVehicleJourney_DestinationName>
+              <MonitoredVehicleJourney_Monitored>true</MonitoredVehicleJourney_Monitored>
+              <MonitoredVehicleJourney_InCongestion>false</MonitoredVehicleJourney_InCongestion>
+              <MonitoredVehicleJourney_BlockRef>11005</MonitoredVehicleJourney_BlockRef>
+              <MonitoredVehicleJourney_VehicleRef>43008</MonitoredVehicleJourney_VehicleRef>
+              <MonitoredCall_VisitNumber>54</MonitoredCall_VisitNumber>
+              <MonitoredCall_VehicleAtStop>false</MonitoredCall_VehicleAtStop>
+              <MonitoredCall_AimedArrivalTime>2019-09-21T17:51:47+01:00</MonitoredCall_AimedArrivalTime>
+              <MonitoredCall_ExpectedArrivalTime>2019-09-21T17:55:51+01:00</MonitoredCall_ExpectedArrivalTime>
+              <MonitoredCall_AimedDepartureTime>2019-09-21T17:51:47+01:00</MonitoredCall_AimedDepartureTime>
+              <MonitoredCall_ExpectedDepartureTime>2019-09-21T17:55:51+01:00</MonitoredCall_ExpectedDepartureTime>
+              <Timestamp>2019-09-21T17:21:34.007+01:00</Timestamp>
+              <LineNote>Due to the closure of College Green on Sunday 22nd of September a number of diversions will be in place from 07:00-19:00. See dublinbus.ie for details.\n\nMar gheall ar dhúnadh Faiche an Choláiste Dé Domhnaigh 22ú Meán Fómhair beidh roinnt athstiúrtha i bhfeidhm ó 07:00-19:00. Féach dublinbus.ie le haghaidh sonraí.</LineNote>
+            </StopData>
+            <StopData diffgr:id="StopData3" msdata:rowOrder="2">
+              <ServiceDelivery_ResponseTimestamp>2019-09-21T17:21:33.927+01:00</ServiceDelivery_ResponseTimestamp>
+              <ServiceDelivery_ProducerRef>bac</ServiceDelivery_ProducerRef>
+              <ServiceDelivery_Status>true</ServiceDelivery_Status>
+              <ServiceDelivery_MoreData>false</ServiceDelivery_MoreData>
+              <StopMonitoringDelivery_Version>1.0</StopMonitoringDelivery_Version>
+              <StopMonitoringDelivery_ResponseTimestamp>2019-09-21T17:21:33.927+01:00</StopMonitoringDelivery_ResponseTimestamp>
+              <StopMonitoringDelivery_RequestMessageRef />
+              <MonitoredStopVisit_RecordedAtTime>2019-09-21T17:21:33.927+01:00</MonitoredStopVisit_RecordedAtTime>
+              <MonitoredStopVisit_MonitoringRef>22</MonitoredStopVisit_MonitoringRef>
+              <MonitoredVehicleJourney_LineRef>11</MonitoredVehicleJourney_LineRef>
+              <MonitoredVehicleJourney_DirectionRef>Inbound</MonitoredVehicleJourney_DirectionRef>
+              <FramedVehicleJourneyRef_DataFrameRef>2019-09-21</FramedVehicleJourneyRef_DataFrameRef>
+              <FramedVehicleJourneyRef_DatedVehicleJourneyRef>10863</FramedVehicleJourneyRef_DatedVehicleJourneyRef>
+              <MonitoredVehicleJourney_PublishedLineName>11</MonitoredVehicleJourney_PublishedLineName>
+              <MonitoredVehicleJourney_OperatorRef>bac</MonitoredVehicleJourney_OperatorRef>
+              <MonitoredVehicleJourney_DestinationRef>6122</MonitoredVehicleJourney_DestinationRef>
+              <MonitoredVehicleJourney_DestinationName>St Pappin's Rd via Drumcondra</MonitoredVehicleJourney_DestinationName>
+              <MonitoredVehicleJourney_Monitored>true</MonitoredVehicleJourney_Monitored>
+              <MonitoredVehicleJourney_InCongestion>false</MonitoredVehicleJourney_InCongestion>
+              <MonitoredVehicleJourney_BlockRef>11007</MonitoredVehicleJourney_BlockRef>
+              <MonitoredVehicleJourney_VehicleRef>44236</MonitoredVehicleJourney_VehicleRef>
+              <MonitoredCall_VisitNumber>54</MonitoredCall_VisitNumber>
+              <MonitoredCall_VehicleAtStop>false</MonitoredCall_VehicleAtStop>
+              <MonitoredCall_AimedArrivalTime>2019-09-21T18:20:01+01:00</MonitoredCall_AimedArrivalTime>
+              <MonitoredCall_ExpectedArrivalTime>2019-09-21T18:20:01+01:00</MonitoredCall_ExpectedArrivalTime>
+              <MonitoredCall_AimedDepartureTime>2019-09-21T18:20:01+01:00</MonitoredCall_AimedDepartureTime>
+              <MonitoredCall_ExpectedDepartureTime>2019-09-21T18:20:01+01:00</MonitoredCall_ExpectedDepartureTime>
+              <Timestamp>2019-09-21T17:21:34.023+01:00</Timestamp>
+              <LineNote>Due to the closure of College Green on Sunday 22nd of September a number of diversions will be in place from 07:00-19:00. See dublinbus.ie for details.\n\nMar gheall ar dhúnadh Faiche an Choláiste Dé Domhnaigh 22ú Meán Fómhair beidh roinnt athstiúrtha i bhfeidhm ó 07:00-19:00. Féach dublinbus.ie le haghaidh sonraí.</LineNote>
+            </StopData>
+          </DocumentElement>
+        </diffgr:diffgram>
+      </GetRealTimeStopDataResult>
+    </GetRealTimeStopDataResponse>
+  </soap:Body>
+</soap:Envelope>

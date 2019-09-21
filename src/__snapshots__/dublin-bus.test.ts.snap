@@ -16,3 +16,23 @@ Array [
   },
 ]
 `;
+
+exports[`It should get real time information for a stop 1`] = `
+Array [
+  Object {
+    "destinationName": "St Pappin's Rd via Drumcondra",
+    "expectedArrivalTime": 2019-09-21T16:38:00.000Z,
+    "lineName": "11",
+  },
+  Object {
+    "destinationName": "St Pappin's Rd via Drumcondra",
+    "expectedArrivalTime": 2019-09-21T16:55:51.000Z,
+    "lineName": "11",
+  },
+  Object {
+    "destinationName": "St Pappin's Rd via Drumcondra",
+    "expectedArrivalTime": 2019-09-21T17:20:01.000Z,
+    "lineName": "11",
+  },
+]
+`;
