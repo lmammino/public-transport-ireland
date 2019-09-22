@@ -20,8 +20,7 @@ stages:
         container: node12
         steps:
           - bash: |
-              npm install
-              npm test
+              npm install && npm test
           - task: PublishTestResults@2
             displayName: "Publish Test Results"
             condition: succeededOrFailed()
@@ -39,8 +38,7 @@ stages:
         container: node10
         steps:
           - bash: |
-              npm install
-              npm test
+              npm install && npm test
           - task: PublishTestResults@2
             displayName: "Publish Test Results"
             condition: succeededOrFailed()
@@ -51,8 +49,7 @@ stages:
         container: node8
         steps:
           - bash: |
-              npm install
-              npm test
+              npm install && npm test
           - task: PublishTestResults@2
             displayName: "Publish Test Results"
             condition: succeededOrFailed()
@@ -64,11 +61,12 @@ stages:
       - job: PublishJob
         container: node12
         variables:
-          NPM_TOKEN: $(NPM_TOKEN)
+          NPM_TOKEN: $(SECRET_NPM_TOKEN)
         steps:
           - bash: |
-              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
-              npm install
-              npm run build
-              npm run build:publish -- $(Build.SourceBranch)
+              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc && \
+              npm install && \
+              npm run build && \
+              npm run build:publish -- $(Build.SourceBranch) && \
+              rm -rf ~/.npmrc
             condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/')
