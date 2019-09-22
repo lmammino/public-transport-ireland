@@ -35,7 +35,7 @@
     "test:types": "tsc --noEmit",
     "test:unit": "jest",
     "build": "tsc",
-    "publish": "echo \"publishing (TODO) - $npm_package_version\""
+    "build:publish": "./scripts/publishIfTagMatches.sh $npm_package_version"
   },
   "repository": {
     "type": "git",
