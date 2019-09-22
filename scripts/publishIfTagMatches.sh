@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
-CURRENT_TAG=$(git describe --exact-match --tags $(git log -n1 --pretty='%h'))
-GIVEN_VERSION=$1
 
-if [ "$CURRENT_TAG" == "$GIVEN_VERSION" ]
+PACKAGE_VERSION=$1
+CURRENT_REF=$2
+CURRENT_TAG=${CURRENT_REF:10}
+
+if [ "$CURRENT_TAG" == "$PACKAGE_VERSION" ]
 then
-  echo "Publishing package (Version: $GIVEN_VERSION)"
+  echo "Publishing package (Version: $PACKAGE_VERSION)"
   npm publish
 else
-  echo "Error: Given version ($GIVEN_VERSION) does not match current tag ($CURRENT_TAG)"
+  echo "Error: Given package version ($PACKAGE_VERSION) does not match current tag ($CURRENT_TAG)"
   echo "Not publishing"
   exit 1
 fi
