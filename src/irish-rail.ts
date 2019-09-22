@@ -1,46 +1,52 @@
 /* eslint camelcase: "off" */
 
-import { createClientAsync } from 'soap'
+import got from 'got'
+import { Parser } from 'xml2js'
 
-const WSDL_URL = 'http://api.irishrail.ie/realtime/realtime.asmx?WSDL'
-const clientPromise = createClientAsync(WSDL_URL)
-
-interface GetAllStationsResponse {
-  readonly getAllStationsXMLResult: {
+interface AllStationsResponse {
+  readonly ArrayOfObjStation: {
     readonly objStation: Array<{
-      StationDesc: string
-      StationAlias: string
-      StationLatitude: string
-      StationLongitude: string
-      StationCode: string
-      StationId: string
+      StationDesc: Array<string>
+      StationAlias: Array<string>
+      StationLatitude: Array<string>
+      StationLongitude: Array<string>
+      StationCode: Array<string>
+      StationId: Array<string>
     }>
   }
 }
 
-interface SoapClient {
-  getAllStationsXMLAsync () : Promise<[GetAllStationsResponse]>
+interface Station {
+  id?: number
+  code?: string
+  name?: string
+  latitude?: number
+  longitude?: number
 }
 
-interface Station {
-  readonly id: number
-  readonly code: string
-  readonly name: string
-  readonly latitude: number
-  readonly longitude: number
+function parseXml (xmlString : string) : Promise<any> {
+  return new Promise((resolve, reject) => {
+    const p = new Parser()
+    p.parseString(xmlString, (err : Error, result : any) => {
+      if (err) {
+        return reject(err)
+      }
+
+      return resolve(result)
+    })
+  })
 }
 
 export async function getStations () : Promise<Array<Station>> {
-  const client : SoapClient = await clientPromise
-  const [resp] = await client.getAllStationsXMLAsync()
-  const data = resp.getAllStationsXMLResult.objStation
+  const response = await got('http://api.irishrail.ie/realtime/realtime.asmx/getAllStationsXML')
+  const document : AllStationsResponse = await parseXml(response.body)
 
-  const stations = data.map(station => ({
-    id: Number(station.StationId),
-    code: station.StationCode,
-    name: station.StationDesc,
-    longitude: Number(station.StationLongitude),
-    latitude: Number(station.StationLatitude)
+  const stations = document.ArrayOfObjStation.objStation.map((station) => ({
+    id: Number(station.StationId[0]),
+    code: station.StationCode[0],
+    name: station.StationDesc[0],
+    longitude: Number(station.StationLongitude[0]),
+    latitude: Number(station.StationLatitude[0])
   }))
 
   return stations

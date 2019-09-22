@@ -1,37 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<soap:Envelope
-  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <soap:Body>
-    <getAllStationsXMLResponse
-      xmlns="http://api.irishrail.ie/realtime/">
-      <getAllStationsXMLResult>
-        <objStation>
-          <StationDesc>Belfast</StationDesc>
-          <StationAlias />
-          <StationLatitude>54.6123</StationLatitude>
-          <StationLongitude>-5.91744</StationLongitude>
-          <StationCode>BFSTC</StationCode>
-          <StationId>228</StationId>
-        </objStation>
-        <objStation>
-          <StationDesc>Lisburn</StationDesc>
-          <StationAlias />
-          <StationLatitude>54.514</StationLatitude>
-          <StationLongitude>-6.04327</StationLongitude>
-          <StationCode>LBURN</StationCode>
-          <StationId>238</StationId>
-        </objStation>
-        <objStation>
-          <StationDesc>Lurgan</StationDesc>
-          <StationAlias />
-          <StationLatitude>54.4672</StationLatitude>
-          <StationLongitude>-6.33547</StationLongitude>
-          <StationCode>LURGN</StationCode>
-          <StationId>241</StationId>
-        </objStation>
-      </getAllStationsXMLResult>
-    </getAllStationsXMLResponse>
-  </soap:Body>
-</soap:Envelope>
+<ArrayOfObjStation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://api.irishrail.ie/realtime/">
+  <objStation>
+    <StationDesc>Belfast</StationDesc>
+    <StationAlias />
+    <StationLatitude>54.6123</StationLatitude>
+    <StationLongitude>-5.91744</StationLongitude>
+    <StationCode>BFSTC</StationCode>
+    <StationId>228</StationId>
+  </objStation>
+  <objStation>
+    <StationDesc>Lisburn</StationDesc>
+    <StationAlias />
+    <StationLatitude>54.514</StationLatitude>
+    <StationLongitude>-6.04327</StationLongitude>
+    <StationCode>LBURN</StationCode>
+    <StationId>238</StationId>
+  </objStation>
+  <objStation>
+    <StationDesc>Lurgan</StationDesc>
+    <StationAlias />
+    <StationLatitude>54.4672</StationLatitude>
+    <StationLongitude>-6.33547</StationLongitude>
+    <StationCode>LURGN</StationCode>
+    <StationId>241</StationId>
+  </objStation>
+</ArrayOfObjStation>
