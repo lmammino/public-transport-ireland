@@ -18,7 +18,7 @@ stages:
               npm install
               npm run test:lint
               npm run test:types
-  - stage: Unit Tests
+  - stage: UnitTests
     jobs:
       - job: UnitTestsJobNode12
         container: node12
