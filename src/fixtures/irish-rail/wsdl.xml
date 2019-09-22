@@ -1,0 +1,1035 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://api.irishrail.ie/realtime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://api.irishrail.ie/realtime/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://api.irishrail.ie/realtime/">
+      <s:element name="getAllStationsXML">
+        <s:complexType />
+      </s:element>
+      <s:element name="getAllStationsXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAllStationsXMLResult" type="tns:ArrayOfObjStation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfObjStation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="objStation" nillable="true" type="tns:objStation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="objStation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="StationDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StationAlias" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StationLatitude" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StationLongitude" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StationId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getAllStationsXML_WithStationType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StationType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllStationsXML_WithStationTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAllStationsXML_WithStationTypeResult" type="tns:ArrayOfObjStation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getHaconTrainsXML">
+        <s:complexType />
+      </s:element>
+      <s:element name="getHaconTrainsXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getHaconTrainsXMLResult" type="tns:ArrayOfObjHaconPositions" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfObjHaconPositions">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="objHaconPositions" nillable="true" type="tns:objHaconPositions" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="objHaconPositions">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TrainStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrainLatitude" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrainLongitude" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrainCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrainDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastLocationType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Direction" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrainOrigin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrainOriginTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrainDestination" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrainDestinationTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastLocation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NextLocation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Difference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ScheduledDeparture" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ScheduledArrival" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getCurrentTrainsXML">
+        <s:complexType />
+      </s:element>
+      <s:element name="getCurrentTrainsXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCurrentTrainsXMLResult" type="tns:ArrayOfObjTrainPositions" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfObjTrainPositions">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="objTrainPositions" nillable="true" type="tns:objTrainPositions" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="objTrainPositions">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TrainStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrainLatitude" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrainLongitude" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrainCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrainDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PublicMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Direction" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getCurrentTrainsXML_WithTrainType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TrainType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCurrentTrainsXML_WithTrainTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCurrentTrainsXML_WithTrainTypeResult" type="tns:ArrayOfObjTrainPositions" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStationDataByNameXML_withNumMins">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StationDesc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NumMins" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStationDataByNameXML_withNumMinsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getStationDataByNameXML_withNumMinsResult" type="tns:ArrayOfObjStationData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfObjStationData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="objStationData" nillable="true" type="tns:objStationData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="objStationData">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Servertime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Traincode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Stationfullname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Stationcode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Querytime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Traindate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Origin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Destination" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Origintime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Destinationtime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lastlocation" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Duein" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Late" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Exparrival" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Expdepart" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Scharrival" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Schdepart" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Direction" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Traintype" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Locationtype" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getStationDataByNameXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StationDesc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStationDataByNameXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getStationDataByNameXMLResult" type="tns:ArrayOfObjStationData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStationDataByCodeXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StationCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStationDataByCodeXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getStationDataByCodeXMLResult" type="tns:ArrayOfObjStationData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStationDataByCodeXML_WithNumMins">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NumMins" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStationDataByCodeXML_WithNumMinsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getStationDataByCodeXML_WithNumMinsResult" type="tns:ArrayOfObjStationData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStationsFilterXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StationText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStationsFilterXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getStationsFilterXMLResult" type="tns:ArrayOfObjStationFilter" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfObjStationFilter">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="objStationFilter" nillable="true" type="tns:objStationFilter" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="objStationFilter">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="StationDesc_sp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StationDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StationCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getTrainMovementsXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TrainId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrainDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTrainMovementsXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getTrainMovementsXMLResult" type="tns:ArrayOfObjTrainMovements" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfObjTrainMovements">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="objTrainMovements" nillable="true" type="tns:objTrainMovements" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="objTrainMovements">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TrainCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrainDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocationFullName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocationOrder" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocationType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrainOrigin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrainDestination" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ScheduledArrival" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ScheduledDeparture" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpectedArrival" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpectedDeparture" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Arrival" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Departure" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AutoArrival" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AutoDepart" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StopType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ArrayOfObjStation" nillable="true" type="tns:ArrayOfObjStation" />
+      <s:element name="ArrayOfObjHaconPositions" nillable="true" type="tns:ArrayOfObjHaconPositions" />
+      <s:element name="ArrayOfObjTrainPositions" nillable="true" type="tns:ArrayOfObjTrainPositions" />
+      <s:element name="ArrayOfObjStationData" nillable="true" type="tns:ArrayOfObjStationData" />
+      <s:element name="ArrayOfObjStationFilter" nillable="true" type="tns:ArrayOfObjStationFilter" />
+      <s:element name="ArrayOfObjTrainMovements" nillable="true" type="tns:ArrayOfObjTrainMovements" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getAllStationsXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:getAllStationsXML" />
+  </wsdl:message>
+  <wsdl:message name="getAllStationsXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:getAllStationsXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAllStationsXML_WithStationTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:getAllStationsXML_WithStationType" />
+  </wsdl:message>
+  <wsdl:message name="getAllStationsXML_WithStationTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:getAllStationsXML_WithStationTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="getHaconTrainsXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:getHaconTrainsXML" />
+  </wsdl:message>
+  <wsdl:message name="getHaconTrainsXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:getHaconTrainsXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCurrentTrainsXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:getCurrentTrainsXML" />
+  </wsdl:message>
+  <wsdl:message name="getCurrentTrainsXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:getCurrentTrainsXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCurrentTrainsXML_WithTrainTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:getCurrentTrainsXML_WithTrainType" />
+  </wsdl:message>
+  <wsdl:message name="getCurrentTrainsXML_WithTrainTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:getCurrentTrainsXML_WithTrainTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="getStationDataByNameXML_withNumMinsSoapIn">
+    <wsdl:part name="parameters" element="tns:getStationDataByNameXML_withNumMins" />
+  </wsdl:message>
+  <wsdl:message name="getStationDataByNameXML_withNumMinsSoapOut">
+    <wsdl:part name="parameters" element="tns:getStationDataByNameXML_withNumMinsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getStationDataByNameXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:getStationDataByNameXML" />
+  </wsdl:message>
+  <wsdl:message name="getStationDataByNameXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:getStationDataByNameXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="getStationDataByCodeXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:getStationDataByCodeXML" />
+  </wsdl:message>
+  <wsdl:message name="getStationDataByCodeXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:getStationDataByCodeXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="getStationDataByCodeXML_WithNumMinsSoapIn">
+    <wsdl:part name="parameters" element="tns:getStationDataByCodeXML_WithNumMins" />
+  </wsdl:message>
+  <wsdl:message name="getStationDataByCodeXML_WithNumMinsSoapOut">
+    <wsdl:part name="parameters" element="tns:getStationDataByCodeXML_WithNumMinsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getStationsFilterXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:getStationsFilterXML" />
+  </wsdl:message>
+  <wsdl:message name="getStationsFilterXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:getStationsFilterXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTrainMovementsXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:getTrainMovementsXML" />
+  </wsdl:message>
+  <wsdl:message name="getTrainMovementsXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:getTrainMovementsXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAllStationsXMLHttpGetIn" />
+  <wsdl:message name="getAllStationsXMLHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfObjStation" />
+  </wsdl:message>
+  <wsdl:message name="getAllStationsXML_WithStationTypeHttpGetIn">
+    <wsdl:part name="StationType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getAllStationsXML_WithStationTypeHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfObjStation" />
+  </wsdl:message>
+  <wsdl:message name="getHaconTrainsXMLHttpGetIn" />
+  <wsdl:message name="getHaconTrainsXMLHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfObjHaconPositions" />
+  </wsdl:message>
+  <wsdl:message name="getCurrentTrainsXMLHttpGetIn" />
+  <wsdl:message name="getCurrentTrainsXMLHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfObjTrainPositions" />
+  </wsdl:message>
+  <wsdl:message name="getCurrentTrainsXML_WithTrainTypeHttpGetIn">
+    <wsdl:part name="TrainType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getCurrentTrainsXML_WithTrainTypeHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfObjTrainPositions" />
+  </wsdl:message>
+  <wsdl:message name="getStationDataByNameXML_withNumMinsHttpGetIn">
+    <wsdl:part name="StationDesc" type="s:string" />
+    <wsdl:part name="NumMins" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getStationDataByNameXML_withNumMinsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfObjStationData" />
+  </wsdl:message>
+  <wsdl:message name="getStationDataByNameXMLHttpGetIn">
+    <wsdl:part name="StationDesc" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getStationDataByNameXMLHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfObjStationData" />
+  </wsdl:message>
+  <wsdl:message name="getStationDataByCodeXMLHttpGetIn">
+    <wsdl:part name="StationCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getStationDataByCodeXMLHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfObjStationData" />
+  </wsdl:message>
+  <wsdl:message name="getStationDataByCodeXML_WithNumMinsHttpGetIn">
+    <wsdl:part name="StationCode" type="s:string" />
+    <wsdl:part name="NumMins" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getStationDataByCodeXML_WithNumMinsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfObjStationData" />
+  </wsdl:message>
+  <wsdl:message name="getStationsFilterXMLHttpGetIn">
+    <wsdl:part name="StationText" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getStationsFilterXMLHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfObjStationFilter" />
+  </wsdl:message>
+  <wsdl:message name="getTrainMovementsXMLHttpGetIn">
+    <wsdl:part name="TrainId" type="s:string" />
+    <wsdl:part name="TrainDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getTrainMovementsXMLHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfObjTrainMovements" />
+  </wsdl:message>
+  <wsdl:message name="getAllStationsXMLHttpPostIn" />
+  <wsdl:message name="getAllStationsXMLHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfObjStation" />
+  </wsdl:message>
+  <wsdl:message name="getAllStationsXML_WithStationTypeHttpPostIn">
+    <wsdl:part name="StationType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getAllStationsXML_WithStationTypeHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfObjStation" />
+  </wsdl:message>
+  <wsdl:message name="getHaconTrainsXMLHttpPostIn" />
+  <wsdl:message name="getHaconTrainsXMLHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfObjHaconPositions" />
+  </wsdl:message>
+  <wsdl:message name="getCurrentTrainsXMLHttpPostIn" />
+  <wsdl:message name="getCurrentTrainsXMLHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfObjTrainPositions" />
+  </wsdl:message>
+  <wsdl:message name="getCurrentTrainsXML_WithTrainTypeHttpPostIn">
+    <wsdl:part name="TrainType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getCurrentTrainsXML_WithTrainTypeHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfObjTrainPositions" />
+  </wsdl:message>
+  <wsdl:message name="getStationDataByNameXML_withNumMinsHttpPostIn">
+    <wsdl:part name="StationDesc" type="s:string" />
+    <wsdl:part name="NumMins" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getStationDataByNameXML_withNumMinsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfObjStationData" />
+  </wsdl:message>
+  <wsdl:message name="getStationDataByNameXMLHttpPostIn">
+    <wsdl:part name="StationDesc" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getStationDataByNameXMLHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfObjStationData" />
+  </wsdl:message>
+  <wsdl:message name="getStationDataByCodeXMLHttpPostIn">
+    <wsdl:part name="StationCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getStationDataByCodeXMLHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfObjStationData" />
+  </wsdl:message>
+  <wsdl:message name="getStationDataByCodeXML_WithNumMinsHttpPostIn">
+    <wsdl:part name="StationCode" type="s:string" />
+    <wsdl:part name="NumMins" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getStationDataByCodeXML_WithNumMinsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfObjStationData" />
+  </wsdl:message>
+  <wsdl:message name="getStationsFilterXMLHttpPostIn">
+    <wsdl:part name="StationText" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getStationsFilterXMLHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfObjStationFilter" />
+  </wsdl:message>
+  <wsdl:message name="getTrainMovementsXMLHttpPostIn">
+    <wsdl:part name="TrainId" type="s:string" />
+    <wsdl:part name="TrainDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getTrainMovementsXMLHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfObjTrainMovements" />
+  </wsdl:message>
+  <wsdl:portType name="RealtimeSoap">
+    <wsdl:operation name="getAllStationsXML">
+      <wsdl:input message="tns:getAllStationsXMLSoapIn" />
+      <wsdl:output message="tns:getAllStationsXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllStationsXML">
+      <wsdl:input name="getAllStationsXML_WithStationType" message="tns:getAllStationsXML_WithStationTypeSoapIn" />
+      <wsdl:output name="getAllStationsXML_WithStationType" message="tns:getAllStationsXML_WithStationTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getHaconTrainsXML">
+      <wsdl:input message="tns:getHaconTrainsXMLSoapIn" />
+      <wsdl:output message="tns:getHaconTrainsXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCurrentTrainsXML">
+      <wsdl:input message="tns:getCurrentTrainsXMLSoapIn" />
+      <wsdl:output message="tns:getCurrentTrainsXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCurrentTrainsXML">
+      <wsdl:input name="getCurrentTrainsXML_WithTrainType" message="tns:getCurrentTrainsXML_WithTrainTypeSoapIn" />
+      <wsdl:output name="getCurrentTrainsXML_WithTrainType" message="tns:getCurrentTrainsXML_WithTrainTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByNameXML">
+      <wsdl:input name="getStationDataByNameXML_withNumMins" message="tns:getStationDataByNameXML_withNumMinsSoapIn" />
+      <wsdl:output name="getStationDataByNameXML_withNumMins" message="tns:getStationDataByNameXML_withNumMinsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByNameXML">
+      <wsdl:input message="tns:getStationDataByNameXMLSoapIn" />
+      <wsdl:output message="tns:getStationDataByNameXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByCodeXML">
+      <wsdl:input message="tns:getStationDataByCodeXMLSoapIn" />
+      <wsdl:output message="tns:getStationDataByCodeXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByCodeXML">
+      <wsdl:input name="getStationDataByCodeXML_WithNumMins" message="tns:getStationDataByCodeXML_WithNumMinsSoapIn" />
+      <wsdl:output name="getStationDataByCodeXML_WithNumMins" message="tns:getStationDataByCodeXML_WithNumMinsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStationsFilterXML">
+      <wsdl:input message="tns:getStationsFilterXMLSoapIn" />
+      <wsdl:output message="tns:getStationsFilterXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTrainMovementsXML">
+      <wsdl:input message="tns:getTrainMovementsXMLSoapIn" />
+      <wsdl:output message="tns:getTrainMovementsXMLSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="RealtimeHttpGet">
+    <wsdl:operation name="getAllStationsXML">
+      <wsdl:input message="tns:getAllStationsXMLHttpGetIn" />
+      <wsdl:output message="tns:getAllStationsXMLHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllStationsXML">
+      <wsdl:input name="getAllStationsXML_WithStationType" message="tns:getAllStationsXML_WithStationTypeHttpGetIn" />
+      <wsdl:output name="getAllStationsXML_WithStationType" message="tns:getAllStationsXML_WithStationTypeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getHaconTrainsXML">
+      <wsdl:input message="tns:getHaconTrainsXMLHttpGetIn" />
+      <wsdl:output message="tns:getHaconTrainsXMLHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCurrentTrainsXML">
+      <wsdl:input message="tns:getCurrentTrainsXMLHttpGetIn" />
+      <wsdl:output message="tns:getCurrentTrainsXMLHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCurrentTrainsXML">
+      <wsdl:input name="getCurrentTrainsXML_WithTrainType" message="tns:getCurrentTrainsXML_WithTrainTypeHttpGetIn" />
+      <wsdl:output name="getCurrentTrainsXML_WithTrainType" message="tns:getCurrentTrainsXML_WithTrainTypeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByNameXML">
+      <wsdl:input name="getStationDataByNameXML_withNumMins" message="tns:getStationDataByNameXML_withNumMinsHttpGetIn" />
+      <wsdl:output name="getStationDataByNameXML_withNumMins" message="tns:getStationDataByNameXML_withNumMinsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByNameXML">
+      <wsdl:input message="tns:getStationDataByNameXMLHttpGetIn" />
+      <wsdl:output message="tns:getStationDataByNameXMLHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByCodeXML">
+      <wsdl:input message="tns:getStationDataByCodeXMLHttpGetIn" />
+      <wsdl:output message="tns:getStationDataByCodeXMLHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByCodeXML">
+      <wsdl:input name="getStationDataByCodeXML_WithNumMins" message="tns:getStationDataByCodeXML_WithNumMinsHttpGetIn" />
+      <wsdl:output name="getStationDataByCodeXML_WithNumMins" message="tns:getStationDataByCodeXML_WithNumMinsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStationsFilterXML">
+      <wsdl:input message="tns:getStationsFilterXMLHttpGetIn" />
+      <wsdl:output message="tns:getStationsFilterXMLHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTrainMovementsXML">
+      <wsdl:input message="tns:getTrainMovementsXMLHttpGetIn" />
+      <wsdl:output message="tns:getTrainMovementsXMLHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="RealtimeHttpPost">
+    <wsdl:operation name="getAllStationsXML">
+      <wsdl:input message="tns:getAllStationsXMLHttpPostIn" />
+      <wsdl:output message="tns:getAllStationsXMLHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllStationsXML">
+      <wsdl:input name="getAllStationsXML_WithStationType" message="tns:getAllStationsXML_WithStationTypeHttpPostIn" />
+      <wsdl:output name="getAllStationsXML_WithStationType" message="tns:getAllStationsXML_WithStationTypeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getHaconTrainsXML">
+      <wsdl:input message="tns:getHaconTrainsXMLHttpPostIn" />
+      <wsdl:output message="tns:getHaconTrainsXMLHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCurrentTrainsXML">
+      <wsdl:input message="tns:getCurrentTrainsXMLHttpPostIn" />
+      <wsdl:output message="tns:getCurrentTrainsXMLHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCurrentTrainsXML">
+      <wsdl:input name="getCurrentTrainsXML_WithTrainType" message="tns:getCurrentTrainsXML_WithTrainTypeHttpPostIn" />
+      <wsdl:output name="getCurrentTrainsXML_WithTrainType" message="tns:getCurrentTrainsXML_WithTrainTypeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByNameXML">
+      <wsdl:input name="getStationDataByNameXML_withNumMins" message="tns:getStationDataByNameXML_withNumMinsHttpPostIn" />
+      <wsdl:output name="getStationDataByNameXML_withNumMins" message="tns:getStationDataByNameXML_withNumMinsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByNameXML">
+      <wsdl:input message="tns:getStationDataByNameXMLHttpPostIn" />
+      <wsdl:output message="tns:getStationDataByNameXMLHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByCodeXML">
+      <wsdl:input message="tns:getStationDataByCodeXMLHttpPostIn" />
+      <wsdl:output message="tns:getStationDataByCodeXMLHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByCodeXML">
+      <wsdl:input name="getStationDataByCodeXML_WithNumMins" message="tns:getStationDataByCodeXML_WithNumMinsHttpPostIn" />
+      <wsdl:output name="getStationDataByCodeXML_WithNumMins" message="tns:getStationDataByCodeXML_WithNumMinsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStationsFilterXML">
+      <wsdl:input message="tns:getStationsFilterXMLHttpPostIn" />
+      <wsdl:output message="tns:getStationsFilterXMLHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTrainMovementsXML">
+      <wsdl:input message="tns:getTrainMovementsXMLHttpPostIn" />
+      <wsdl:output message="tns:getTrainMovementsXMLHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RealtimeSoap" type="tns:RealtimeSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getAllStationsXML">
+      <soap:operation soapAction="http://api.irishrail.ie/realtime/getAllStationsXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllStationsXML">
+      <soap:operation soapAction="http://api.irishrail.ie/realtime/getAllStationsXML_WithStationType" style="document" />
+      <wsdl:input name="getAllStationsXML_WithStationType">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getAllStationsXML_WithStationType">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHaconTrainsXML">
+      <soap:operation soapAction="http://api.irishrail.ie/realtime/getHaconTrainsXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCurrentTrainsXML">
+      <soap:operation soapAction="http://api.irishrail.ie/realtime/getCurrentTrainsXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCurrentTrainsXML">
+      <soap:operation soapAction="http://api.irishrail.ie/realtime/getCurrentTrainsXML_WithTrainType" style="document" />
+      <wsdl:input name="getCurrentTrainsXML_WithTrainType">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getCurrentTrainsXML_WithTrainType">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByNameXML">
+      <soap:operation soapAction="http://api.irishrail.ie/realtime/getStationDataByNameXML_withNumMins" style="document" />
+      <wsdl:input name="getStationDataByNameXML_withNumMins">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getStationDataByNameXML_withNumMins">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByNameXML">
+      <soap:operation soapAction="http://api.irishrail.ie/realtime/getStationDataByNameXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByCodeXML">
+      <soap:operation soapAction="http://api.irishrail.ie/realtime/getStationDataByCodeXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByCodeXML">
+      <soap:operation soapAction="http://api.irishrail.ie/realtime/getStationDataByCodeXML_WithNumMins" style="document" />
+      <wsdl:input name="getStationDataByCodeXML_WithNumMins">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getStationDataByCodeXML_WithNumMins">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStationsFilterXML">
+      <soap:operation soapAction="http://api.irishrail.ie/realtime/getStationsFilterXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTrainMovementsXML">
+      <soap:operation soapAction="http://api.irishrail.ie/realtime/getTrainMovementsXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RealtimeSoap12" type="tns:RealtimeSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getAllStationsXML">
+      <soap12:operation soapAction="http://api.irishrail.ie/realtime/getAllStationsXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllStationsXML">
+      <soap12:operation soapAction="http://api.irishrail.ie/realtime/getAllStationsXML_WithStationType" style="document" />
+      <wsdl:input name="getAllStationsXML_WithStationType">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getAllStationsXML_WithStationType">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHaconTrainsXML">
+      <soap12:operation soapAction="http://api.irishrail.ie/realtime/getHaconTrainsXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCurrentTrainsXML">
+      <soap12:operation soapAction="http://api.irishrail.ie/realtime/getCurrentTrainsXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCurrentTrainsXML">
+      <soap12:operation soapAction="http://api.irishrail.ie/realtime/getCurrentTrainsXML_WithTrainType" style="document" />
+      <wsdl:input name="getCurrentTrainsXML_WithTrainType">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getCurrentTrainsXML_WithTrainType">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByNameXML">
+      <soap12:operation soapAction="http://api.irishrail.ie/realtime/getStationDataByNameXML_withNumMins" style="document" />
+      <wsdl:input name="getStationDataByNameXML_withNumMins">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getStationDataByNameXML_withNumMins">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByNameXML">
+      <soap12:operation soapAction="http://api.irishrail.ie/realtime/getStationDataByNameXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByCodeXML">
+      <soap12:operation soapAction="http://api.irishrail.ie/realtime/getStationDataByCodeXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByCodeXML">
+      <soap12:operation soapAction="http://api.irishrail.ie/realtime/getStationDataByCodeXML_WithNumMins" style="document" />
+      <wsdl:input name="getStationDataByCodeXML_WithNumMins">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getStationDataByCodeXML_WithNumMins">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStationsFilterXML">
+      <soap12:operation soapAction="http://api.irishrail.ie/realtime/getStationsFilterXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTrainMovementsXML">
+      <soap12:operation soapAction="http://api.irishrail.ie/realtime/getTrainMovementsXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RealtimeHttpGet" type="tns:RealtimeHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="getAllStationsXML">
+      <http:operation location="/getAllStationsXML" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllStationsXML">
+      <http:operation location="/getAllStationsXML_WithStationType" />
+      <wsdl:input name="getAllStationsXML_WithStationType">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="getAllStationsXML_WithStationType">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHaconTrainsXML">
+      <http:operation location="/getHaconTrainsXML" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCurrentTrainsXML">
+      <http:operation location="/getCurrentTrainsXML" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCurrentTrainsXML">
+      <http:operation location="/getCurrentTrainsXML_WithTrainType" />
+      <wsdl:input name="getCurrentTrainsXML_WithTrainType">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="getCurrentTrainsXML_WithTrainType">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByNameXML">
+      <http:operation location="/getStationDataByNameXML_withNumMins" />
+      <wsdl:input name="getStationDataByNameXML_withNumMins">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="getStationDataByNameXML_withNumMins">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByNameXML">
+      <http:operation location="/getStationDataByNameXML" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByCodeXML">
+      <http:operation location="/getStationDataByCodeXML" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByCodeXML">
+      <http:operation location="/getStationDataByCodeXML_WithNumMins" />
+      <wsdl:input name="getStationDataByCodeXML_WithNumMins">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="getStationDataByCodeXML_WithNumMins">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStationsFilterXML">
+      <http:operation location="/getStationsFilterXML" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTrainMovementsXML">
+      <http:operation location="/getTrainMovementsXML" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RealtimeHttpPost" type="tns:RealtimeHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="getAllStationsXML">
+      <http:operation location="/getAllStationsXML" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllStationsXML">
+      <http:operation location="/getAllStationsXML_WithStationType" />
+      <wsdl:input name="getAllStationsXML_WithStationType">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="getAllStationsXML_WithStationType">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHaconTrainsXML">
+      <http:operation location="/getHaconTrainsXML" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCurrentTrainsXML">
+      <http:operation location="/getCurrentTrainsXML" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCurrentTrainsXML">
+      <http:operation location="/getCurrentTrainsXML_WithTrainType" />
+      <wsdl:input name="getCurrentTrainsXML_WithTrainType">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="getCurrentTrainsXML_WithTrainType">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByNameXML">
+      <http:operation location="/getStationDataByNameXML_withNumMins" />
+      <wsdl:input name="getStationDataByNameXML_withNumMins">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="getStationDataByNameXML_withNumMins">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByNameXML">
+      <http:operation location="/getStationDataByNameXML" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByCodeXML">
+      <http:operation location="/getStationDataByCodeXML" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStationDataByCodeXML">
+      <http:operation location="/getStationDataByCodeXML_WithNumMins" />
+      <wsdl:input name="getStationDataByCodeXML_WithNumMins">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="getStationDataByCodeXML_WithNumMins">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStationsFilterXML">
+      <http:operation location="/getStationsFilterXML" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTrainMovementsXML">
+      <http:operation location="/getTrainMovementsXML" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Realtime">
+    <wsdl:port name="RealtimeSoap" binding="tns:RealtimeSoap">
+      <soap:address location="http://api.irishrail.ie/realtime/realtime.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RealtimeSoap12" binding="tns:RealtimeSoap12">
+      <soap12:address location="http://api.irishrail.ie/realtime/realtime.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RealtimeHttpGet" binding="tns:RealtimeHttpGet">
+      <http:address location="http://api.irishrail.ie/realtime/realtime.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RealtimeHttpPost" binding="tns:RealtimeHttpPost">
+      <http:address location="http://api.irishrail.ie/realtime/realtime.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

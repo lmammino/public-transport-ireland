@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It should get all stations 1`] = `
+Array [
+  Object {
+    "code": "BFSTC",
+    "id": 228,
+    "latitude": 54.6123,
+    "longitude": -5.91744,
+    "name": "Belfast",
+  },
+  Object {
+    "code": "LBURN",
+    "id": 238,
+    "latitude": 54.514,
+    "longitude": -6.04327,
+    "name": "Lisburn",
+  },
+  Object {
+    "code": "LURGN",
+    "id": 241,
+    "latitude": 54.4672,
+    "longitude": -6.33547,
+    "name": "Lurgan",
+  },
+]
+`;

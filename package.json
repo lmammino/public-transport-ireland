@@ -9,6 +9,7 @@
   "engineStrict": true,
   "files": [
     "dublin-bus.js",
+    "irish-rail.js",
     "dist/"
   ],
   "types": "./lib/index.d.ts",

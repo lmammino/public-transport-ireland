@@ -3,11 +3,11 @@
 import { join } from 'path'
 import { readFileSync } from 'fs'
 import nock from 'nock'
-import * as dublinBus from './dublin-bus'
+import dublinBus from './dublin-bus'
 
-const wsdlResponse = readFileSync(join(__dirname, 'fixtures', 'dublin-bus-wsdl.xml'))
-const allDestinationsResponseData = readFileSync(join(__dirname, 'fixtures', 'dublin-bus-get-all-destinations.xml'))
-const realTimeInfoData = readFileSync(join(__dirname, 'fixtures', 'dublin-bus-get-real-time-stop-data.xml'))
+const wsdlResponse = readFileSync(join(__dirname, 'fixtures', 'dublin-bus', 'wsdl.xml'))
+const allDestinationsResponseData = readFileSync(join(__dirname, 'fixtures', 'dublin-bus', 'get-all-destinations.xml'))
+const realTimeInfoData = readFileSync(join(__dirname, 'fixtures', 'dublin-bus', 'get-real-time-stop-data.xml'))
 
 // mock WSDL request
 nock('http://rtpi.dublinbus.ie')
