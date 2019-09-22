@@ -1,14 +1,14 @@
 resources:
   containers:
   - container: node12
-    image: node:12.10-stretch
+    image: node:12.10-alpine
   - container: node10
-    image: node:10.16-stretch
+    image: node:10.16-alpine
   - container: node8
-    image: node:8.16-stretch
+    image: node:8.16-alpine
+
 
 stages:
-
   - stage: Lint
     jobs:
       - job: LintJob
@@ -18,7 +18,6 @@ stages:
               npm install
               npm run test:lint
               npm run test:types
-
   - stage: Unit
     jobs:
       - job: UnitJobNode12
@@ -27,19 +26,36 @@ stages:
           - bash: |
               npm install
               npm run test:unit
+          - task: PublishTestResults@2
+            displayName: "Publish Test Results"
+            condition: succeededOrFailed()
+            inputs:
+              testResultsFiles: "junit.xml"
+              testRunTitle: TestRun Node 12
       - job: UnitJobNode10
         container: node10
         steps:
           - bash: |
               npm install
               npm run test:unit
+          - task: PublishTestResults@2
+            displayName: "Publish Test Results"
+            condition: succeededOrFailed()
+            inputs:
+              testResultsFiles: "junit.xml"
+              testRunTitle: TestRun Node 10
       - job: UnitJobNode8
         container: node8
         steps:
           - bash: |
               npm install
               npm run test:unit
-
+          - task: PublishTestResults@2
+            displayName: "Publish Test Results"
+            condition: succeededOrFailed()
+            inputs:
+              testResultsFiles: "junit.xml"
+              testRunTitle: TestRun Node 8
   - stage: Build
     jobs:
       - job: BuildJob
