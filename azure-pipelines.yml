@@ -60,8 +60,6 @@ stages:
     jobs:
       - job: PublishJob
         container: node12
-        variables:
-          NPM_TOKEN: $(secretNpmToken)
         steps:
           - bash: |
               echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc && \
@@ -70,3 +68,5 @@ stages:
               npm run build:publish -- $(Build.SourceBranch) && \
               rm -rf ~/.npmrc
             condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/')
+            env:
+              NPM_TOKEN: $(secretNpmToken)
