@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`It should get all stops 1`] = `
+exports['It should get all stops 1'] = `
 Array [
   Object {
     "description": "Ballymun Road, Nursing Home",
@@ -15,9 +15,9 @@ Array [
     "longitude": -6.263668,
   },
 ]
-`;
+`
 
-exports[`It should get real time information for a stop 1`] = `
+exports['It should get real time information for a stop 1'] = `
 Array [
   Object {
     "arrivingInMinutes": 0,
@@ -41,4 +41,4 @@ Array [
     "vehicleAtStop": false,
   },
 ]
-`;
+`

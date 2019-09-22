@@ -68,18 +68,14 @@ stages:
             inputs:
               testResultsFiles: "junit.xml"
               testRunTitle: TestRun Node 8
-  - stage: Build
-    jobs:
-      - job: BuildJob
-        container: node12
-        steps:
-          - bash: |
-              npm install
-              npm run build
-  - stage: Publish
+  - stage: BuildAndPublish
     jobs:
       - job: PublishJob
         container: node12
         steps:
-          - bash: npm run build:publish -- $(Build.SourceBranch)
+          - bash: |
+              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+              npm install
+              npm run build
+              npm run build:publish -- $(Build.SourceBranch)
             condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/')

@@ -46,17 +46,26 @@ interface SoapClient {
 }
 
 interface RealtimeData {
+  /** The name of the bus line (e.g. "11") */
   lineName: string
+  /** The name of the destination (e.g. "St Pappin's Rd via Drumcondra") */
   destinationName: string
+  /** A timestamp in ISO-8601 representing the expected arrival time (e.g. "2019-09-21T17:21:33.927+01:00") **/
   expectedArrivalTime: string
+  /** The number of minutes for the bus to arrive at the stop (e.g. 22) */
   arrivingInMinutes: number
+  /** A boolean indicating if the bus is already at the stop */
   vehicleAtStop: boolean
 }
 
 interface Stop {
+  /** The stop number (e.g. 17) */
   id: number
+  /** The longitude of the stop as float (e.g. -6.263668) */
   longitude: number
+  /** The latitude of the stop as float (e.g. 53.399107) */
   latitude: number
+  /** A textual description of the stop (e.g. "Ballymun Road, Nursing Home") */
   description: string
 }
 
