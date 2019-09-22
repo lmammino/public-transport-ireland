@@ -1,3 +1,2 @@
-import * as db from './dublin-bus'
-
-export const dublinBus = db
+import * as dublinBus from './dublin-bus'
+export default dublinBus

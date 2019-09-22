@@ -20,12 +20,93 @@ Requires **Node.js v8+**
 
 ## Sample usage
 
-... TODO ...
+This module contains several sub modules. You can globally import all submodules by doing something like this:
+
+```javascript
+const publicTransport = require('public-transport-ireland')
+
+// access dublinBus.getStops
+console.log(publicTransport.dublinBus.getStops) // function
+```
+
+However, since every sub module might allocate resources (e.g. SOAP or HTTP clients) as soon as they are imported, it is recommended to directly import the sub modules that you want to use:
+
+```javascript
+onst dublinBus = require('public-transport-ireland/dublin-bus')
+
+// access dublinBus.getStops
+console.log(dublinBus.getStops) // function
+```
+
+
+### Sub modules available
+
+ - [`dublin-bus`](#dublin-bus): `require('public-transport-ireland/dublin-bus')`
+ - [`irish-rail`](#irish-rail): `require('public-transport-ireland/irish-rail')`
+ - [`luas`](#luas): `require('public-transport-ireland/luas')`
 
 
 ## Dublin Bus
 
-... TODO ...
+Allows to get all the stops and the real time information for a stop.
+
+
+### Examples
+
+Get all the stops and then the real time information for the first stop:
+
+```javascript
+'use strict'
+
+const { getStops, getRealTimeInfo } = require('public-transport-ireland/dublin-bus')
+
+async function main() {
+  const allStops = await getStops()
+  console.log('allStops', allStops)
+  const realTimeDataForFirstStop = await getRealTimeInfo(allStops[0].id)
+  console.log('realTimeDataForFirstStop', realTimeDataForFirstStop)
+}
+
+main()
+```
+
+This will print:
+
+```plain
+allStops [
+  {
+    id: 2,
+    longitude: -6.263695,
+    latitude: 53.352241,
+    description: 'Parnell Square, Parnell Street'
+  },
+  {
+    id: 3,
+    longitude: -6.263783,
+    latitude: 53.352307,
+    description: 'Parnell Square, Granby Place'
+  },
+  // ...
+]
+
+realTimeDataForFirstStop [
+  {
+    lineName: '46A',
+    destinationName: 'Phoenix Pk via Donnybrook',
+    expectedArrivalTime: '2019-09-22T16:59:59.000+01:00',
+    vehicleAtStop: false,
+    arrivingInMinutes: 5
+  },
+  {
+    lineName: '38',
+    destinationName: 'Damastown via Corduff',
+    expectedArrivalTime: '2019-09-22T17:04:05.000+01:00',
+    vehicleAtStop: false,
+    arrivingInMinutes: 9
+  },
+  // ...
+]
+```
 
 
 ## Irish Rail

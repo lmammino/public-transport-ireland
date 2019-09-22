@@ -113,3 +113,8 @@ export async function getStops () : Promise<Array<Stop>> {
 
   return stops
 }
+
+export default {
+  getRealTimeInfo,
+  getStops
+}
