@@ -1,11 +1,11 @@
 resources:
   containers:
   - container: node12
-    image: node:12.10-alpine
+    image: node:12.10-stretch-slim
   - container: node10
-    image: node:10.16-alpine
+    image: node:10.16-stretch-slim
   - container: node8
-    image: node:8.16-alpine
+    image: node:8.16-stretch-slim
 
 
 stages:
@@ -32,6 +32,11 @@ stages:
             inputs:
               testResultsFiles: "junit.xml"
               testRunTitle: TestRun Node 12
+          - task: PublishCodeCoverageResults@1
+            displayName: "Publish Coverage Results"
+            inputs:
+              codeCoverageTool: "cobertura"
+              summaryFileLocation: "coverage/cobertura-coverage.xml"
       - job: UnitJobNode10
         container: node10
         steps:
