@@ -1,3 +1,9 @@
+trigger:
+  branches:
+    include:
+      - refs/heads/*
+      - refs/tags/*
+
 resources:
   containers:
   - container: node12
