@@ -18,9 +18,9 @@ stages:
               npm install
               npm run test:lint
               npm run test:types
-  - stage: Unit
+  - stage: Unit Tests
     jobs:
-      - job: UnitJobNode12
+      - job: UnitTestsJobNode12
         container: node12
         steps:
           - bash: |
@@ -32,12 +32,18 @@ stages:
             inputs:
               testResultsFiles: "junit.xml"
               testRunTitle: TestRun Node 12
+          - bash: |
+              wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+              dpkg -i packages-microsoft-prod.deb
+              apt-get install apt-transport-https
+              apt-get update
+              apt-get install dotnet-sdk-2.2
           - task: PublishCodeCoverageResults@1
             displayName: "Publish Coverage Results"
             inputs:
               codeCoverageTool: "cobertura"
               summaryFileLocation: "coverage/cobertura-coverage.xml"
-      - job: UnitJobNode10
+      - job: UnitTestsJobNode10
         container: node10
         steps:
           - bash: |
@@ -49,7 +55,7 @@ stages:
             inputs:
               testResultsFiles: "junit.xml"
               testRunTitle: TestRun Node 10
-      - job: UnitJobNode8
+      - job: UnitTestsJobNode8
         container: node8
         steps:
           - bash: |
