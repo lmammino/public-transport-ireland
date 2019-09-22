@@ -14,23 +14,14 @@ resources:
     image: node:8.16-stretch-slim
 
 stages:
-  - stage: Lint
+  - stage: Tests
     jobs:
-      - job: LintJob
+      - job: TestsJobNode12
         container: node12
         steps:
           - bash: |
               npm install
-              npm run test:lint
-              npm run test:types
-  - stage: UnitTests
-    jobs:
-      - job: UnitTestsJobNode12
-        container: node12
-        steps:
-          - bash: |
-              npm install
-              npm run test:unit
+              npm test
           - task: PublishTestResults@2
             displayName: "Publish Test Results"
             condition: succeededOrFailed()
@@ -44,24 +35,24 @@ stages:
               codeCoverageTool: "cobertura"
               summaryFileLocation: "coverage/cobertura-coverage.xml"
               reportDirectory: "coverage/lcov-report"
-      - job: UnitTestsJobNode10
+      - job: TestsJobNode10
         container: node10
         steps:
           - bash: |
               npm install
-              npm run test:unit
+              npm test
           - task: PublishTestResults@2
             displayName: "Publish Test Results"
             condition: succeededOrFailed()
             inputs:
               testResultsFiles: "junit.xml"
               testRunTitle: TestRun Node 10
-      - job: UnitTestsJobNode8
+      - job: TestsJobNode8
         container: node8
         steps:
           - bash: |
               npm install
-              npm run test:unit
+              npm test
           - task: PublishTestResults@2
             displayName: "Publish Test Results"
             condition: succeededOrFailed()
@@ -74,8 +65,9 @@ stages:
         container: node12
         steps:
           - bash: |
-              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
               npm install
               npm run build
               npm run build:publish -- $(Build.SourceBranch)
+              rm .npmrc
             condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/')

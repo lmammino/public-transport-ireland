@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+set -e
+
+if [ -z "$NPM_TOKEN" ]
+then
+  echo "Error: \$NPM_TOKEN not set"
+  exit 1
+fi
+
 PACKAGE_VERSION=$1
 CURRENT_REF=$2
 CURRENT_TAG=${CURRENT_REF:10}
