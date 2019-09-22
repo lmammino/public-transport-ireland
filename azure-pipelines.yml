@@ -75,6 +75,5 @@ stages:
       - job: PublishJob
         container: node12
         steps:
-          - condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/')
-            bash: |
-              npm run publish
+          - bash: npm run publish
+            condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/')
