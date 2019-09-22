@@ -7,7 +7,6 @@ resources:
   - container: node8
     image: node:8.16-stretch-slim
 
-
 stages:
   - stage: Lint
     jobs:
@@ -32,12 +31,6 @@ stages:
             inputs:
               testResultsFiles: "junit.xml"
               testRunTitle: TestRun Node 12
-          - bash: |
-              wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-              dpkg -i packages-microsoft-prod.deb
-              apt-get install apt-transport-https
-              apt-get update
-              apt-get install dotnet-sdk-2.2
           - task: PublishCodeCoverageResults@1
             displayName: "Publish Coverage Results"
             condition: succeededOrFailed()
@@ -82,6 +75,6 @@ stages:
       - job: PublishJob
         container: node12
         steps:
-          - bash: |
-              npm install
-              npm run build
+          - condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/')
+            bash: |
+              npm run publish

@@ -1,6 +1,6 @@
 {
   "name": "public-transport-ireland",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Node.js module with utility functions to get real time data for Irish public transport (Irish Rail, Luas, Dublin Bus)",
   "main": "dist/index.js",
   "engine": {
@@ -34,7 +34,8 @@
     "test:lint": "eslint src/**/*.ts",
     "test:types": "tsc --noEmit",
     "test:unit": "jest",
-    "build": "tsc"
+    "build": "tsc",
+    "publish": "echo \"publishing (TODO) - $npm_package_version\""
   },
   "repository": {
     "type": "git",
