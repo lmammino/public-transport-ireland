@@ -63,11 +63,12 @@ stages:
     jobs:
       - job: PublishJob
         container: node12
+        variables:
+          NPM_TOKEN: $(NPM_TOKEN)
         steps:
           - bash: |
-              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
               npm install
               npm run build
               npm run build:publish -- $(Build.SourceBranch)
-              rm .npmrc
             condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/')

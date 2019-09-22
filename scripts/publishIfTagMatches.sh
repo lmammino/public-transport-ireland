@@ -5,6 +5,7 @@ set -e
 if [ -z "$NPM_TOKEN" ]
 then
   echo "Error: \$NPM_TOKEN not set"
+  env
   exit 1
 fi
 
