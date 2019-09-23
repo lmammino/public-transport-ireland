@@ -26,7 +26,7 @@ Array [
 ]
 `;
 
-exports[`It should get real time informationf for a station 1`] = `
+exports[`It should get real time information for a station 1`] = `
 Array [
   Object {
     "arrivingInMinutes": 23,
@@ -139,6 +139,75 @@ Array [
     "scheduledDepartureTime": "2019-09-22T21:20:00.000+01:00",
     "status": "No Information",
     "trainType": "DART",
+  },
+]
+`;
+
+exports[`It should get real time information for a station with a direction filter 1`] = `
+Array [
+  Object {
+    "arrivingInMinutes": 2,
+    "code": "P739",
+    "destination": "Dublin Connolly",
+    "destinationTime": "2019-09-23T10:51:00.000+01:00",
+    "direction": "Southbound",
+    "expectedArrivalTime": "2019-09-23T11:12:00.000+01:00",
+    "expectedDepartureTime": "2019-09-23T11:13:00.000+01:00",
+    "minutesLate": 35,
+    "origin": "Maynooth",
+    "originTime": "2019-09-23T10:10:00.000+01:00",
+    "scheduledArrivalTime": "2019-09-23T10:37:00.000+01:00",
+    "scheduledDepartureTime": "2019-09-23T10:38:00.000+01:00",
+    "status": "En Route",
+    "trainType": "Train",
+  },
+  Object {
+    "arrivingInMinutes": 4,
+    "code": "P740",
+    "destination": "Dublin Connolly",
+    "destinationTime": "2019-09-23T11:22:00.000+01:00",
+    "direction": "Southbound",
+    "expectedArrivalTime": "2019-09-23T11:15:00.000+01:00",
+    "expectedDepartureTime": "2019-09-23T11:15:00.000+01:00",
+    "minutesLate": 7,
+    "origin": "Maynooth",
+    "originTime": "2019-09-23T10:40:00.000+01:00",
+    "scheduledArrivalTime": "2019-09-23T11:07:00.000+01:00",
+    "scheduledDepartureTime": "2019-09-23T11:08:00.000+01:00",
+    "status": "En Route",
+    "trainType": "Train",
+  },
+  Object {
+    "arrivingInMinutes": 57,
+    "code": "P742",
+    "destination": "Dublin Connolly",
+    "destinationTime": "2019-09-23T12:22:00.000+01:00",
+    "direction": "Southbound",
+    "expectedArrivalTime": "2019-09-23T12:07:00.000+01:00",
+    "expectedDepartureTime": "2019-09-23T12:08:00.000+01:00",
+    "minutesLate": 0,
+    "origin": "Maynooth",
+    "originTime": "2019-09-23T11:40:00.000+01:00",
+    "scheduledArrivalTime": "2019-09-23T12:07:00.000+01:00",
+    "scheduledDepartureTime": "2019-09-23T12:08:00.000+01:00",
+    "status": "No Information",
+    "trainType": "Train",
+  },
+  Object {
+    "arrivingInMinutes": 87,
+    "code": "P743",
+    "destination": "Dublin Connolly",
+    "destinationTime": "2019-09-23T12:52:00.000+01:00",
+    "direction": "Southbound",
+    "expectedArrivalTime": "2019-09-23T12:37:00.000+01:00",
+    "expectedDepartureTime": "2019-09-23T12:38:00.000+01:00",
+    "minutesLate": 0,
+    "origin": "Maynooth",
+    "originTime": "2019-09-23T12:10:00.000+01:00",
+    "scheduledArrivalTime": "2019-09-23T12:37:00.000+01:00",
+    "scheduledDepartureTime": "2019-09-23T12:38:00.000+01:00",
+    "status": "No Information",
+    "trainType": "Train",
   },
 ]
 `;

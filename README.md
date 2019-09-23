@@ -190,6 +190,63 @@ realTimeDataForFirstStation [
 ]
 ```
 
+When getting real time information you can also pass an additional parameter to filter on a specific "direction" (e.g. "Southbound" or "Northbound") as in the following example:
+
+```javascript
+'use strict'
+
+const { getRealTimeInfo, Direction } = require('public-transport-ireland/irish-rail')
+
+async function main () {
+  const realTimeDataForAshtownSouthbound = await getRealTimeInfo('ASHTN', Direction.SOUTHBOUND)
+  console.log('realTimeDataForAshtownSouthbound', realTimeDataForAshtownSouthbound)
+}
+
+main()
+```
+
+This should print something like this:
+
+```plain
+realTimeDataForAshtownSouthbound [
+  {
+    code: 'P740',
+    origin: 'Maynooth',
+    destination: 'Dublin Connolly',
+    originTime: '2019-09-23T10:40:00.000+01:00',
+    destinationTime: '2019-09-23T11:22:00.000+01:00',
+    status: 'En Route',
+    arrivingInMinutes: 1,
+    minutesLate: 9,
+    expectedArrivalTime: '2019-09-23T11:17:00.000+01:00',
+    expectedDepartureTime: '2019-09-23T11:17:00.000+01:00',
+    scheduledArrivalTime: '2019-09-23T11:07:00.000+01:00',
+    scheduledDepartureTime: '2019-09-23T11:08:00.000+01:00',
+    direction: 'Southbound',
+    trainType: 'Train'
+  },
+  {
+    code: 'P742',
+    origin: 'Maynooth',
+    destination: 'Dublin Connolly',
+    originTime: '2019-09-23T11:40:00.000+01:00',
+    destinationTime: '2019-09-23T12:22:00.000+01:00',
+    status: 'No Information',
+    arrivingInMinutes: 52,
+    minutesLate: 0,
+    expectedArrivalTime: '2019-09-23T12:07:00.000+01:00',
+    expectedDepartureTime: '2019-09-23T12:08:00.000+01:00',
+    scheduledArrivalTime: '2019-09-23T12:07:00.000+01:00',
+    scheduledDepartureTime: '2019-09-23T12:08:00.000+01:00',
+    direction: 'Southbound',
+    trainType: 'Train'
+  },
+  // ...
+]
+```
+
+Note that you can use the `Direction` object to get a list of well known directions.
+
 
 ## 🚃 Luas
 

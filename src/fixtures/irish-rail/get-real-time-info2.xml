@@ -1,0 +1,165 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfObjStationData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://api.irishrail.ie/realtime/">
+  <objStationData>
+    <Servertime>2019-09-23T11:11:40.58</Servertime>
+    <Traincode>D912 </Traincode>
+    <Stationfullname>Ashtown</Stationfullname>
+    <Stationcode>ASHTN</Stationcode>
+    <Querytime>11:11:40</Querytime>
+    <Traindate>23 Sep 2019</Traindate>
+    <Origin>Dublin Connolly</Origin>
+    <Destination>Maynooth</Destination>
+    <Origintime>11:17</Origintime>
+    <Destinationtime>11:58</Destinationtime>
+    <Status>No Information</Status>
+    <Lastlocation />
+    <Duein>19</Duein>
+    <Late>0</Late>
+    <Exparrival>11:29</Exparrival>
+    <Expdepart>11:30</Expdepart>
+    <Scharrival>11:29</Scharrival>
+    <Schdepart>11:30</Schdepart>
+    <Direction>Northbound</Direction>
+    <Traintype>Train</Traintype>
+    <Locationtype>S</Locationtype>
+  </objStationData>
+  <objStationData>
+    <Servertime>2019-09-23T11:11:40.58</Servertime>
+    <Traincode>D913 </Traincode>
+    <Stationfullname>Ashtown</Stationfullname>
+    <Stationcode>ASHTN</Stationcode>
+    <Querytime>11:11:40</Querytime>
+    <Traindate>23 Sep 2019</Traindate>
+    <Origin>Dublin Connolly</Origin>
+    <Destination>Maynooth</Destination>
+    <Origintime>11:47</Origintime>
+    <Destinationtime>12:28</Destinationtime>
+    <Status>No Information</Status>
+    <Lastlocation />
+    <Duein>49</Duein>
+    <Late>0</Late>
+    <Exparrival>11:59</Exparrival>
+    <Expdepart>12:00</Expdepart>
+    <Scharrival>11:59</Scharrival>
+    <Schdepart>12:00</Schdepart>
+    <Direction>Northbound</Direction>
+    <Traintype>Train</Traintype>
+    <Locationtype>S</Locationtype>
+  </objStationData>
+  <objStationData>
+    <Servertime>2019-09-23T11:11:40.58</Servertime>
+    <Traincode>D914 </Traincode>
+    <Stationfullname>Ashtown</Stationfullname>
+    <Stationcode>ASHTN</Stationcode>
+    <Querytime>11:11:40</Querytime>
+    <Traindate>23 Sep 2019</Traindate>
+    <Origin>Dublin Connolly</Origin>
+    <Destination>Maynooth</Destination>
+    <Origintime>12:17</Origintime>
+    <Destinationtime>12:58</Destinationtime>
+    <Status>No Information</Status>
+    <Lastlocation />
+    <Duein>79</Duein>
+    <Late>0</Late>
+    <Exparrival>12:29</Exparrival>
+    <Expdepart>12:30</Expdepart>
+    <Scharrival>12:29</Scharrival>
+    <Schdepart>12:30</Schdepart>
+    <Direction>Northbound</Direction>
+    <Traintype>Train</Traintype>
+    <Locationtype>S</Locationtype>
+  </objStationData>
+  <objStationData>
+    <Servertime>2019-09-23T11:11:40.58</Servertime>
+    <Traincode>P739 </Traincode>
+    <Stationfullname>Ashtown</Stationfullname>
+    <Stationcode>ASHTN</Stationcode>
+    <Querytime>11:11:40</Querytime>
+    <Traindate>23 Sep 2019</Traindate>
+    <Origin>Maynooth</Origin>
+    <Destination>Dublin Connolly</Destination>
+    <Origintime>10:10</Origintime>
+    <Destinationtime>10:51</Destinationtime>
+    <Status>En Route</Status>
+    <Lastlocation>Departed Navan Road Parkway</Lastlocation>
+    <Duein>2</Duein>
+    <Late>35</Late>
+    <Exparrival>11:12</Exparrival>
+    <Expdepart>11:13</Expdepart>
+    <Scharrival>10:37</Scharrival>
+    <Schdepart>10:38</Schdepart>
+    <Direction>Southbound</Direction>
+    <Traintype>Train</Traintype>
+    <Locationtype>S</Locationtype>
+  </objStationData>
+  <objStationData>
+    <Servertime>2019-09-23T11:11:40.58</Servertime>
+    <Traincode>P740 </Traincode>
+    <Stationfullname>Ashtown</Stationfullname>
+    <Stationcode>ASHTN</Stationcode>
+    <Querytime>11:11:40</Querytime>
+    <Traindate>23 Sep 2019</Traindate>
+    <Origin>Maynooth</Origin>
+    <Destination>Dublin Connolly</Destination>
+    <Origintime>10:40</Origintime>
+    <Destinationtime>11:22</Destinationtime>
+    <Status>En Route</Status>
+    <Lastlocation>Arrived Castleknock</Lastlocation>
+    <Duein>4</Duein>
+    <Late>7</Late>
+    <Exparrival>11:15</Exparrival>
+    <Expdepart>11:15</Expdepart>
+    <Scharrival>11:07</Scharrival>
+    <Schdepart>11:08</Schdepart>
+    <Direction>Southbound</Direction>
+    <Traintype>Train</Traintype>
+    <Locationtype>S</Locationtype>
+  </objStationData>
+  <objStationData>
+    <Servertime>2019-09-23T11:11:40.58</Servertime>
+    <Traincode>P742 </Traincode>
+    <Stationfullname>Ashtown</Stationfullname>
+    <Stationcode>ASHTN</Stationcode>
+    <Querytime>11:11:40</Querytime>
+    <Traindate>23 Sep 2019</Traindate>
+    <Origin>Maynooth</Origin>
+    <Destination>Dublin Connolly</Destination>
+    <Origintime>11:40</Origintime>
+    <Destinationtime>12:22</Destinationtime>
+    <Status>No Information</Status>
+    <Lastlocation />
+    <Duein>57</Duein>
+    <Late>0</Late>
+    <Exparrival>12:07</Exparrival>
+    <Expdepart>12:08</Expdepart>
+    <Scharrival>12:07</Scharrival>
+    <Schdepart>12:08</Schdepart>
+    <Direction>Southbound</Direction>
+    <Traintype>Train</Traintype>
+    <Locationtype>S</Locationtype>
+  </objStationData>
+  <objStationData>
+    <Servertime>2019-09-23T11:11:40.58</Servertime>
+    <Traincode>P743 </Traincode>
+    <Stationfullname>Ashtown</Stationfullname>
+    <Stationcode>ASHTN</Stationcode>
+    <Querytime>11:11:40</Querytime>
+    <Traindate>23 Sep 2019</Traindate>
+    <Origin>Maynooth</Origin>
+    <Destination>Dublin Connolly</Destination>
+    <Origintime>12:10</Origintime>
+    <Destinationtime>12:52</Destinationtime>
+    <Status>No Information</Status>
+    <Lastlocation />
+    <Duein>87</Duein>
+    <Late>0</Late>
+    <Exparrival>12:37</Exparrival>
+    <Expdepart>12:38</Expdepart>
+    <Scharrival>12:37</Scharrival>
+    <Schdepart>12:38</Schdepart>
+    <Direction>Southbound</Direction>
+    <Traintype>Train</Traintype>
+    <Locationtype>S</Locationtype>
+  </objStationData>
+</ArrayOfObjStationData>
