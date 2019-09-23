@@ -6,11 +6,17 @@ import { parseXml } from './utils/parse-xml'
 
 const SERVICE_URI = 'http://luasforecasts.rpa.ie/xml/get.ashx'
 
+/**
+ * An object that contains all the well known lines (key/value pairs)
+ */
 export enum Line {
   RED = 'Luas Red Line',
   GREEN = 'Luas Green Line'
 }
 
+/**
+ * An object that contains all the well known directions (key/value pairs)
+ */
 export enum Direction {
   INBOUND = 'Inbound',
   OUTBOUND = 'Outbound'
@@ -84,7 +90,7 @@ interface Stop {
   /** The stop latitude (e.g. 53.28467885) */
   latitude: number
   /** The stop longitude (e.g. -6.43776255) */
-  longitute: number
+  longitude: number
   /** Status message for outbound trains (e.g. "Services operating normally") */
   outboundStatusMessage: string
   /** boolean indicating whether outbound service is operating normally */
@@ -146,7 +152,7 @@ export async function getStops (lineFilter?: Line) : Promise<Array<Stop>> {
         isParkRide: stop.$.isParkRide === '1',
         isCycleRide: stop.$.isCycleRide === '1',
         latitude: Number(stop.$.lat),
-        longitute: Number(stop.$.long),
+        longitude: Number(stop.$.long),
         outboundStatusMessage: stop.$.outboundStatusMessage,
         outboundOperatingNormally: stop.$.outboundOperatingNormally === 'True',
         outboundForecastsEnabled: stop.$.outboundForecastsEnabled === 'True',
@@ -165,7 +171,7 @@ export async function getStops (lineFilter?: Line) : Promise<Array<Stop>> {
 }
 
 /**
- * get realtime information for a given stop
+ * Get realtime information for a given stop
  */
 export async function getRealTimeInfo (stopCode: string, directionFilter?: Direction): Promise<Array<Tram>> {
   const response = await got(SERVICE_URI, {

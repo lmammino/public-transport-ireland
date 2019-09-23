@@ -51,6 +51,12 @@ console.log(dublinBus.getStops) // function
 Allows to get all the stops and the real time information for a stop.
 
 
+### Exported items
+
+  - `getStops()`: get information about all available stops
+  - `getRealTimeInfo(stopId: number)`: get real time information for a given bus stop
+
+
 ### Examples
 
 Get all the stops and then the real time information for the first stop:
@@ -112,6 +118,13 @@ realTimeDataForFirstStop [
 ## 🚂 Irish Rail
 
 Allows to get all the stations and the real time information for a station.
+
+
+### Exported items
+
+  - `getStations()`: get information about all available train stations
+  - `getRealTimeInfo(stationCode: string, direction?: Direction)`: Get information about trains arriving at a given station
+  - `Direction`: an object that contains all the well known directions (key/value pairs)
 
 
 ### Examples
@@ -190,6 +203,10 @@ realTimeDataForFirstStation [
 ]
 ```
 
+
+---
+
+
 When getting real time information you can also pass an additional parameter to filter on a specific "direction" (e.g. "Southbound" or "Northbound") as in the following example:
 
 ```javascript
@@ -250,7 +267,164 @@ Note that you can use the `Direction` object to get a list of well known directi
 
 ## 🚃 Luas
 
-... TODO ...
+Allows to get all the stops, stop status and the real time information for a stop.
+
+### Exported items
+
+  - `getStops(lineFilter?: Line)`: get all the available luas stop. Can filter by line
+  - `getRealTimeInfo(stopCode: string, directionFilter?: Direction)`: get realtime information for a given stop
+  - `getStopStatus(stopCode: string)`: get the status of a given stop
+  - `Line`: an object that contains all the well known lines (key/value pairs)
+  - `Direction`: an object that contains all the well known directions (key/value pairs)
+
+
+### Examples
+
+Get all the available stops and then the real time information for the first stop:
+
+```javascript
+'use strict'
+
+const { getStops, getStopStatus, getRealTimeInfo } = require('public-transport-ireland/luas')
+
+async function main () {
+  const allStops = await getStops()
+  console.log('allStops', allStops)
+
+  const firstStopStatus = await getStopStatus(allStops[0].code)
+  console.log('firstStopStatus', firstStopStatus)
+
+  const firstStopRealTimeInfo = await getRealTimeInfo(allStops[0].code)
+  console.log('firstStopRealTimeInfo', firstStopRealTimeInfo)
+}
+
+main()
+```
+
+This should print something like this:
+
+```plain
+allStops [
+  {
+    line: 'Luas Red Line',
+    name: 'The Point',
+    pronunciation: 'The Point',
+    code: 'TPT',
+    isParkRide: false,
+    isCycleRide: false,
+    latitude: 53.34835,
+    longitude: -6.22925833333333,
+    outboundStatusMessage: 'Services operating normally',
+    outboundOperatingNormally: true,
+    outboundForecastsEnabled: true,
+    inboundStatusMessage: 'Services operating normally',
+    inboundOperatingNormally: true,
+    inboundForecastsEnabled: true
+  },
+  // ...
+]
+firstStopStatus [
+  {
+    direction: 'Inbound',
+    statusMessage: 'Services operating normally',
+    forecastsEnabled: true,
+    operatingNormally: true
+  },
+  // ...
+]
+firstStopRealTimeInfo [
+  {
+    direction: 'Inbound',
+    destination: 'No trams forecast',
+    arrivingInMinutes: 0,
+    expectedArrivalTime: '2019-09-23T20:01:46.000+01:00'
+  },
+  // ...
+]
+```
+
+---
+
+The `getStops` function accept an optional parameter to filter on the line.
+To get the stops only for the Red line you can do something like this:
+
+```javascript
+'use strict'
+
+const { Line, getStops } = require('public-transport-ireland/luas')
+
+async function main () {
+  const redLineStops = await getStops(Line.RED)
+  console.log('redLineStops', redLineStops)
+}
+
+main()
+```
+
+This will print something like this:
+
+```plain
+redLineStops [
+  {
+    line: 'Luas Red Line',
+    name: 'The Point',
+    pronunciation: 'The Point',
+    code: 'TPT',
+    isParkRide: false,
+    isCycleRide: false,
+    latitude: 53.34835,
+    longitude: -6.22925833333333,
+    outboundStatusMessage: 'Services operating normally',
+    outboundOperatingNormally: true,
+    outboundForecastsEnabled: true,
+    inboundStatusMessage: 'Services operating normally',
+    inboundOperatingNormally: true,
+    inboundForecastsEnabled: true
+  },
+  // ...
+]
+```
+
+Note that you can use the `Line` object to get a list of well known lines.
+
+
+---
+
+The `getRealTimeInfo` function allows you to pass an optional parameter to filter on a given direction:
+
+```javascript
+'use strict'
+
+const { Direction, getRealTimeInfo } = require('public-transport-ireland/luas')
+
+async function main () {
+  const realTimeInboundInfoForDominic = await getRealTimeInfo('DOM', Direction.INBOUND)
+  console.log('realTimeInboundInfoForDominic', realTimeInboundInfoForDominic)
+}
+
+main()
+```
+
+This will print something like this:
+
+```plain
+realTimeInboundInfoForDominic [
+  {
+    direction: 'Inbound',
+    destination: 'Broombridge',
+    arrivingInMinutes: 6,
+    expectedArrivalTime: '2019-09-23T20:19:02.000+01:00'
+  },
+  {
+    direction: 'Inbound',
+    destination: 'Broombridge',
+    arrivingInMinutes: 15,
+    expectedArrivalTime: '2019-09-23T20:28:02.000+01:00'
+  }
+]
+```
+
+Note that you can use the `Direction` object to get a list of well known directions.
 
 
 ## Contributing

@@ -4,6 +4,9 @@ import got from 'got'
 import { DateTime } from 'luxon'
 import { parseXml } from './utils/parse-xml'
 
+/**
+ * An object that contains all the well known directions (key/value pairs)
+ */
 export enum Direction {
   NORTHBOUND = 'Northbound',
   SOUTHBOUND = 'Southbound',

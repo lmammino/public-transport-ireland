@@ -70,7 +70,7 @@ interface Stop {
 }
 
 /**
- * Get real time informationf or a given bus stop
+ * Get real time information for a given bus stop
  */
 export async function getRealTimeInfo (stopId: number): Promise<Array<RealtimeData>> {
   const client: SoapClient = await clientPromise
