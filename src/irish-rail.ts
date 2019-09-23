@@ -2,6 +2,7 @@
 
 import got from 'got'
 import { Parser } from 'xml2js'
+import { DateTime } from 'luxon'
 
 interface AllStationsResponse {
   readonly ArrayOfObjStation: {
@@ -105,6 +106,13 @@ export async function getStations () : Promise<Array<Station>> {
   return stations
 }
 
+function getISOTimeForHHmm (serverTime : DateTime, time: string) : string {
+  const [hours, minutes] = time.split(':').map(Number)
+  const isoTime = serverTime.startOf('day').plus({ hours, minutes })
+
+  return isoTime.toString()
+}
+
 /**
  * Get information about trains arriving at a given station
  */
@@ -117,22 +125,25 @@ export async function getRealTimeInfo (stationCode: string): Promise<Array<Train
 
   const document : AllTrainsResponse = await parseXml(response.body)
 
-  const trains = document.ArrayOfObjStationData.objStationData.map((train) => ({
-    code: train.Traincode[0].trim(),
-    origin: train.Origin[0].trim(),
-    destination: train.Destination[0].trim(),
-    originTime: train.Origintime[0].trim(),
-    destinationTime: train.Destinationtime[0].trim(),
-    status: train.Status[0].trim(),
-    arrivingInMinutes: Number(train.Duein[0].trim()),
-    minutesLate: Number(train.Late[0].trim()),
-    expectedArrivalTime: train.Exparrival[0].trim(),
-    expectedDepartureTime: train.Expdepart[0].trim(),
-    scheduledArrivalTime: train.Scharrival[0].trim(),
-    scheduledDepartureTime: train.Schdepart[0].trim(),
-    direction: train.Direction[0].trim(),
-    trainType: train.Traintype[0].trim()
-  }))
+  const trains = document.ArrayOfObjStationData.objStationData.map((train) => {
+    const serverTime = DateTime.fromISO(train.Servertime[0].trim(), { zone: 'Europe/Dublin' })
+    return {
+      code: train.Traincode[0].trim(),
+      origin: train.Origin[0].trim(),
+      destination: train.Destination[0].trim(),
+      originTime: getISOTimeForHHmm(serverTime, train.Origintime[0].trim()),
+      destinationTime: getISOTimeForHHmm(serverTime, train.Destinationtime[0].trim()),
+      status: train.Status[0].trim(),
+      arrivingInMinutes: Number(train.Duein[0].trim()),
+      minutesLate: Number(train.Late[0].trim()),
+      expectedArrivalTime: getISOTimeForHHmm(serverTime, train.Exparrival[0].trim()),
+      expectedDepartureTime: getISOTimeForHHmm(serverTime, train.Expdepart[0].trim()),
+      scheduledArrivalTime: getISOTimeForHHmm(serverTime, train.Scharrival[0].trim()),
+      scheduledDepartureTime: getISOTimeForHHmm(serverTime, train.Schdepart[0].trim()),
+      direction: train.Direction[0].trim(),
+      trainType: train.Traintype[0].trim()
+    }
+  })
 
   return trains
 }
