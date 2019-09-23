@@ -1,6 +1,6 @@
 {
   "name": "public-transport-ireland",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Node.js module with utility functions to get real time data for Irish public transport (Irish Rail, Luas, Dublin Bus)",
   "main": "dist/index.js",
   "engine": {
