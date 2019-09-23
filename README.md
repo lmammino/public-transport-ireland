@@ -41,9 +41,9 @@ console.log(dublinBus.getStops) // function
 
 ### Sub modules available
 
- - [`dublin-bus`](#dublin-bus): `require('public-transport-ireland/dublin-bus')`
- - [`irish-rail`](#irish-rail): `require('public-transport-ireland/irish-rail')`
- - [`luas`](#luas): `require('public-transport-ireland/luas')`
+ - [`dublin-bus`](#-dublin-bus): `require('public-transport-ireland/dublin-bus')`
+ - [`irish-rail`](#-irish-rail): `require('public-transport-ireland/irish-rail')`
+ - [`luas`](#-luas): `require('public-transport-ireland/luas')`
 
 
 ## 🚌 Dublin Bus
