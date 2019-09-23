@@ -46,7 +46,7 @@ console.log(dublinBus.getStops) // function
  - [`luas`](#luas): `require('public-transport-ireland/luas')`
 
 
-## Dublin Bus
+## 🚌 Dublin Bus
 
 Allows to get all the stops and the real time information for a stop.
 
@@ -109,7 +109,12 @@ realTimeDataForFirstStop [
 ```
 
 
-## Irish Rail
+## 🚂 Irish Rail
+
+Allows to get all the stations and the real time information for a station.
+
+
+### Examples
 
 Get all the available stations and then the real time information for the first station:
 
@@ -186,7 +191,7 @@ realTimeDataForFirstStation [
 ```
 
 
-## Luas
+## 🚃 Luas
 
 ... TODO ...
 
