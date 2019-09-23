@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it should parse some xml successfully 1`] = `
+Object {
+  "a": Object {
+    "b": Array [
+      "c",
+    ],
+  },
+}
+`;
+
+exports[`it should throw an exception with invalid xml 1`] = `
+[Error: Unclosed root tag
+Line: 0
+Column: 7
+Char: ]
+`;
