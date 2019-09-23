@@ -10,6 +10,7 @@
   "files": [
     "dublin-bus.js",
     "irish-rail.js",
+    "luas.js",
     "dist/"
   ],
   "types": "./lib/index.d.ts",

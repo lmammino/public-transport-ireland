@@ -1,8 +1,8 @@
 /* eslint no-unused-vars: "off" */
 
 import got from 'got'
-import { Parser } from 'xml2js'
 import { DateTime } from 'luxon'
+import { parseXml } from './utils/parse-xml'
 
 export enum Direction {
   NORTHBOUND = 'Northbound',
@@ -78,33 +78,34 @@ interface Station {
 }
 
 interface Train {
+  /** The train code (e.g. "E811") */
   code: string
+  /** The train origin station (e.g. "Greystones") */
   origin: string
+  /** The train destination station (e.g. "Malahide") */
   destination: string
+  /** The train time in ISO-8601 at its origin station (e.g. "2019-09-22T19:50:00.000+01:00") */
   originTime: string
+  /** The train expected  arrival time to the final destination in ISO-8601 (e.g. "2019-09-22T21:07:00.000+01:00") */
   destinationTime: string
+  /** The train status (e.g. "En Route" or "No Information") */
   status: string
+  /** The minutes left before the train arrives (e.g. 23) */
   arrivingInMinutes: number
+  /** The number of minutes late (e.g. 17) */
   minutesLate: number,
+  /** The train expected arrival time to the station in ISO-8601 (e.g. "2019-09-22T20:36:00.000+01:00") */
   expectedArrivalTime: string,
+  /** The train expected departure time from the station in ISO-8601 (e.g. "2019-09-22T20:37:00.000+01:00") */
   expectedDepartureTime: string,
+  /** The train scheduled arrival time to the station in ISO-8601 (e.g. "2019-09-22T20:36:00.000+01:00") */
   scheduledArrivalTime: string,
+  /** The train scheduled arrival time to the station in ISO-8601 (e.g. "2019-09-22T20:37:00.000+01:00") */
   scheduledDepartureTime: string,
+  /** The train direction (e.g. "Northbound" or "Southbound") */
   direction: Direction,
+  /** The type of train (e.g. "DART") */
   trainType: string
-}
-
-function parseXml (xmlString : string) : Promise<any> {
-  return new Promise((resolve, reject) => {
-    const p = new Parser()
-    p.parseString(xmlString, (err : Error, result : any) => {
-      if (err) {
-        return reject(err)
-      }
-
-      return resolve(result)
-    })
-  })
 }
 
 /**

@@ -15,12 +15,14 @@ nock('http://api.irishrail.ie')
   .once()
   .reply(200, allStationsResponseData)
 
+// mock get station data
 nock('http://api.irishrail.ie')
   .get('/realtime/realtime.asmx/getStationDataByCodeXML')
   .query({ StationCode: 'SEAPT' })
   .once()
   .reply(200, realTimeInfoResponseData)
 
+// mock get station data 2
 nock('http://api.irishrail.ie')
   .get('/realtime/realtime.asmx/getStationDataByCodeXML')
   .query({ StationCode: 'ASHTN' })

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stops>
+  <line name="Luas Red Line" statusMessage="Red Line services operating normally">
+    <stop abrev="TPT" isParkRide="0" isCycleRide="0" lat="53.34835" long="-6.22925833333333" pronunciation="The Point" outboundStatusMessage="Services operating normally" outboundForecastsEnabled="True" outboundOperatingNormally="True" inboundStatusMessage="Services operating normally" inboundForecastsEnabled="True" inboundOperatingNormally="True">The Point</stop>
+    <stop abrev="SDK" isParkRide="0" isCycleRide="0" lat="53.3488222222222" long="-6.23714722222222" pronunciation="Spencer Dock" outboundStatusMessage="Services operating normally" outboundForecastsEnabled="True" outboundOperatingNormally="True" inboundStatusMessage="Services operating normally" inboundForecastsEnabled="True" inboundOperatingNormally="True">Spencer Dock</stop>
+  </line>
+  <line name="Luas Green Line" statusMessage="Green Line services operating normally">
+    <stop abrev="BRO" isParkRide="0" isCycleRide="0" lat="53.37223956" long="-6.29768465" pronunciation="Broombridge" outboundStatusMessage="Services operating normally" outboundForecastsEnabled="True" outboundOperatingNormally="True" inboundStatusMessage="Services operating normally" inboundForecastsEnabled="True" inboundOperatingNormally="True">Broombridge</stop>
+    <stop abrev="CAB" isParkRide="0" isCycleRide="0" lat="53.36433419" long="-6.28196899" pronunciation="Cabra" outboundStatusMessage="Services operating normally" outboundForecastsEnabled="True" outboundOperatingNormally="True" inboundStatusMessage="Services operating normally" inboundForecastsEnabled="True" inboundOperatingNormally="True">Cabra</stop>
+  </line>
+</stops>

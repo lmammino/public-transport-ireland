@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It should ge all stops 1`] = `
+Array [
+  Object {
+    "code": "TPT",
+    "isCycleRide": false,
+    "isParkRide": false,
+    "latitude": 53.34835,
+    "line": "Luas Red Line",
+    "longitute": -6.22925833333333,
+    "name": "The Point",
+    "pronunciation": "The Point",
+  },
+  Object {
+    "code": "SDK",
+    "isCycleRide": false,
+    "isParkRide": false,
+    "latitude": 53.3488222222222,
+    "line": "Luas Red Line",
+    "longitute": -6.23714722222222,
+    "name": "Spencer Dock",
+    "pronunciation": "Spencer Dock",
+  },
+  Object {
+    "code": "BRO",
+    "isCycleRide": false,
+    "isParkRide": false,
+    "latitude": 53.37223956,
+    "line": "Luas Green Line",
+    "longitute": -6.29768465,
+    "name": "Broombridge",
+    "pronunciation": "Broombridge",
+  },
+  Object {
+    "code": "CAB",
+    "isCycleRide": false,
+    "isParkRide": false,
+    "latitude": 53.36433419,
+    "line": "Luas Green Line",
+    "longitute": -6.28196899,
+    "name": "Cabra",
+    "pronunciation": "Cabra",
+  },
+]
+`;
+
+exports[`It should ge all stops for a line 1`] = `
+Array [
+  Object {
+    "code": "BRO",
+    "isCycleRide": false,
+    "isParkRide": false,
+    "latitude": 53.37223956,
+    "line": "Luas Green Line",
+    "longitute": -6.29768465,
+    "name": "Broombridge",
+    "pronunciation": "Broombridge",
+  },
+  Object {
+    "code": "CAB",
+    "isCycleRide": false,
+    "isParkRide": false,
+    "latitude": 53.36433419,
+    "line": "Luas Green Line",
+    "longitute": -6.28196899,
+    "name": "Cabra",
+    "pronunciation": "Cabra",
+  },
+]
+`;
