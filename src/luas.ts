@@ -25,6 +25,12 @@ interface AllStopsResponse {
           lat: string
           long: string
           pronunciation: string
+          outboundStatusMessage: string
+          outboundOperatingNormally: string // "True" or "False"
+          outboundForecastsEnabled: string // "True" or "False"
+          inboundStatusMessage: string
+          inboundOperatingNormally: string // "True" or "False"
+          inboundForecastsEnabled: string // "True" or "False"
         }
       }>
     }>
@@ -48,6 +54,18 @@ interface Stop {
   latitude: number
   /** The stop longitude (e.g. -6.43776255) */
   longitute: number
+  /** Status message for outbound trains (e.g. "Services operating normally") */
+  outboundStatusMessage: string
+  /** boolean indicating whether outbound service is operating normally */
+  outboundOperatingNormally: boolean
+  /** boolean indicating whether outbound forecasts are enabled */
+  outboundForecastsEnabled: boolean
+  /** Status message for inbound trains (e.g. "Services operating normally") */
+  inboundStatusMessage: string
+  /** boolean indicating whether inbound service is operating normally */
+  inboundOperatingNormally: boolean
+  /** boolean indicating whether inbound forecasts are enabled */
+  inboundForecastsEnabled: boolean
 }
 
 /**
@@ -57,6 +75,7 @@ export async function getStops (lineFilter?: Line) : Promise<Array<Stop>> {
   const response = await got(SERVICE_URI, {
     query: {
       action: 'list',
+      ver: 2,
       encrypt: 'false' // yes, if you don't pass this one the response is encrypted -.-
     }
   })
@@ -73,7 +92,13 @@ export async function getStops (lineFilter?: Line) : Promise<Array<Stop>> {
         isParkRide: stop.$.isParkRide === '1',
         isCycleRide: stop.$.isCycleRide === '1',
         latitude: Number(stop.$.lat),
-        longitute: Number(stop.$.long)
+        longitute: Number(stop.$.long),
+        outboundStatusMessage: stop.$.outboundStatusMessage,
+        outboundOperatingNormally: stop.$.outboundOperatingNormally === 'True',
+        outboundForecastsEnabled: stop.$.outboundForecastsEnabled === 'True',
+        inboundStatusMessage: stop.$.inboundStatusMessage,
+        inboundOperatingNormally: stop.$.inboundOperatingNormally === 'True',
+        inboundForecastsEnabled: stop.$.inboundForecastsEnabled === 'True'
       })
     })
   })
@@ -85,7 +110,16 @@ export async function getStops (lineFilter?: Line) : Promise<Array<Stop>> {
   return stops
 }
 
+/**
+ * get realtime information for a given stop
+ */
+export async function getRealTimeInfo (stop: string) {
+  // TODO
+  console.log(stop)
+}
+
 export default {
   getStops,
+  getRealTimeInfo,
   Line
 }

@@ -10,6 +10,7 @@ nock('http://luasforecasts.rpa.ie')
   .get('/xml/get.ashx')
   .query({
     action: 'list',
+    ver: '2',
     encrypt: 'false'
   })
   .twice()
