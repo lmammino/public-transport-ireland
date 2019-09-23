@@ -60,7 +60,7 @@ Get all the stops and then the real time information for the first stop:
 
 const { getStops, getRealTimeInfo } = require('public-transport-ireland/dublin-bus')
 
-async function main() {
+async function main () {
   const allStops = await getStops()
   console.log('allStops', allStops)
   const realTimeDataForFirstStop = await getRealTimeInfo(allStops[0].id)
@@ -111,7 +111,79 @@ realTimeDataForFirstStop [
 
 ## Irish Rail
 
-... TODO ...
+Get all the available stations and then the real time information for the first station:
+
+```javascript
+'use strict'
+
+const { getStations, getRealTimeInfo } = require('public-transport-ireland/irish-rail')
+
+async function main () {
+  const allStations = await getStations()
+  console.log('allStations', allStations)
+  const realTimeDataForFirstStation = await getRealTimeInfo(allStations[0].code)
+  console.log('realTimeDataForFirstStation', realTimeDataForFirstStation)
+}
+
+main()
+```
+
+This will print:
+
+```plain
+allStations [
+  {
+    id: 228,
+    code: 'BFSTC',
+    name: 'Belfast',
+    longitude: -5.91744,
+    latitude: 54.6123
+  },
+  {
+    id: 238,
+    code: 'LBURN',
+    name: 'Lisburn',
+    longitude: -6.04327,
+    latitude: 54.514
+  },
+  // ...
+]
+realTimeDataForFirstStation [
+  {
+    code: 'A122',
+    origin: 'Dublin Connolly',
+    destination: 'Belfast',
+    originTime: '2019-09-23T07:35:00.000+01:00',
+    destinationTime: '2019-09-23T09:45:00.000+01:00',
+    status: 'En Route',
+    arrivingInMinutes: 2,
+    minutesLate: 5,
+    expectedArrivalTime: '2019-09-23T09:50:00.000+01:00',
+    expectedDepartureTime: '2019-09-23T00:00:00.000+01:00',
+    scheduledArrivalTime: '2019-09-23T09:45:00.000+01:00',
+    scheduledDepartureTime: '2019-09-23T00:00:00.000+01:00',
+    direction: 'Northbound',
+    trainType: 'Train'
+  },
+  {
+    code: 'A125',
+    origin: 'Belfast',
+    destination: 'Dublin Connolly',
+    originTime: '2019-09-23T10:35:00.000+01:00',
+    destinationTime: '2019-09-23T12:40:00.000+01:00',
+    status: 'No Information',
+    arrivingInMinutes: 47,
+    minutesLate: 0,
+    expectedArrivalTime: '2019-09-23T00:00:00.000+01:00',
+    expectedDepartureTime: '2019-09-23T10:35:00.000+01:00',
+    scheduledArrivalTime: '2019-09-23T00:00:00.000+01:00',
+    scheduledDepartureTime: '2019-09-23T10:35:00.000+01:00',
+    direction: 'Southbound',
+    trainType: 'Train'
+  },
+  // ...
+]
+```
 
 
 ## Luas
