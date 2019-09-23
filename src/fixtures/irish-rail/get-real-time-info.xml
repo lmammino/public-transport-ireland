@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfObjStationData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://api.irishrail.ie/realtime/">
+  <objStationData>
+    <Servertime>2019-09-22T20:13:46.44</Servertime>
+    <Traincode>E811 </Traincode>
+    <Stationfullname>Seapoint</Stationfullname>
+    <Stationcode>SEAPT</Stationcode>
+    <Querytime>20:13:46</Querytime>
+    <Traindate>22 Sep 2019</Traindate>
+    <Origin>Greystones</Origin>
+    <Destination>Malahide</Destination>
+    <Origintime>19:50</Origintime>
+    <Destinationtime>21:07</Destinationtime>
+    <Status>En Route</Status>
+    <Lastlocation>Arrived Bray</Lastlocation>
+    <Duein>23</Duein>
+    <Late>14</Late>
+    <Exparrival>20:36</Exparrival>
+    <Expdepart>20:36</Expdepart>
+    <Scharrival>20:22</Scharrival>
+    <Schdepart>20:22</Schdepart>
+    <Direction>Northbound</Direction>
+    <Traintype>DART</Traintype>
+    <Locationtype>S</Locationtype>
+  </objStationData>
+  <objStationData>
+    <Servertime>2019-09-22T20:13:46.44</Servertime>
+    <Traincode>E922 </Traincode>
+    <Stationfullname>Seapoint</Stationfullname>
+    <Stationcode>SEAPT</Stationcode>
+    <Querytime>20:13:46</Querytime>
+    <Traindate>22 Sep 2019</Traindate>
+    <Origin>Bray</Origin>
+    <Destination>Howth</Destination>
+    <Origintime>20:30</Origintime>
+    <Destinationtime>21:37</Destinationtime>
+    <Status>No Information</Status>
+    <Lastlocation />
+    <Duein>39</Duein>
+    <Late>0</Late>
+    <Exparrival>20:52</Exparrival>
+    <Expdepart>20:52</Expdepart>
+    <Scharrival>20:52</Scharrival>
+    <Schdepart>20:52</Schdepart>
+    <Direction>Northbound</Direction>
+    <Traintype>DART</Traintype>
+    <Locationtype>S</Locationtype>
+  </objStationData>
+  <objStationData>
+    <Servertime>2019-09-22T20:13:46.44</Servertime>
+    <Traincode>E812 </Traincode>
+    <Stationfullname>Seapoint</Stationfullname>
+    <Stationcode>SEAPT</Stationcode>
+    <Querytime>20:13:46</Querytime>
+    <Traindate>22 Sep 2019</Traindate>
+    <Origin>Greystones</Origin>
+    <Destination>Malahide</Destination>
+    <Origintime>20:50</Origintime>
+    <Destinationtime>22:09</Destinationtime>
+    <Status>No Information</Status>
+    <Lastlocation />
+    <Duein>69</Duein>
+    <Late>0</Late>
+    <Exparrival>21:22</Exparrival>
+    <Expdepart>21:22</Expdepart>
+    <Scharrival>21:22</Scharrival>
+    <Schdepart>21:22</Schdepart>
+    <Direction>Northbound</Direction>
+    <Traintype>DART</Traintype>
+    <Locationtype>S</Locationtype>
+  </objStationData>
+  <objStationData>
+    <Servertime>2019-09-22T20:13:46.44</Servertime>
+    <Traincode>E219 </Traincode>
+    <Stationfullname>Seapoint</Stationfullname>
+    <Stationcode>SEAPT</Stationcode>
+    <Querytime>20:13:46</Querytime>
+    <Traindate>22 Sep 2019</Traindate>
+    <Origin>Howth</Origin>
+    <Destination>Bray</Destination>
+    <Origintime>19:35</Origintime>
+    <Destinationtime>20:43</Destinationtime>
+    <Status>En Route</Status>
+    <Lastlocation>Arrived Dublin Pearse</Lastlocation>
+    <Duein>15</Duein>
+    <Late>8</Late>
+    <Exparrival>20:27</Exparrival>
+    <Expdepart>20:28</Expdepart>
+    <Scharrival>20:19</Scharrival>
+    <Schdepart>20:20</Schdepart>
+    <Direction>Southbound</Direction>
+    <Traintype>DART</Traintype>
+    <Locationtype>S</Locationtype>
+  </objStationData>
+  <objStationData>
+    <Servertime>2019-09-22T20:13:46.44</Servertime>
+    <Traincode>E220 </Traincode>
+    <Stationfullname>Seapoint</Stationfullname>
+    <Stationcode>SEAPT</Stationcode>
+    <Querytime>20:13:46</Querytime>
+    <Traindate>22 Sep 2019</Traindate>
+    <Origin>Howth</Origin>
+    <Destination>Bray</Destination>
+    <Origintime>20:00</Origintime>
+    <Destinationtime>21:07</Destinationtime>
+    <Status>En Route</Status>
+    <Lastlocation>Arrived Raheny</Lastlocation>
+    <Duein>32</Duein>
+    <Late>1</Late>
+    <Exparrival>20:44</Exparrival>
+    <Expdepart>20:45</Expdepart>
+    <Scharrival>20:43</Scharrival>
+    <Schdepart>20:44</Schdepart>
+    <Direction>Southbound</Direction>
+    <Traintype>DART</Traintype>
+    <Locationtype>S</Locationtype>
+  </objStationData>
+  <objStationData>
+    <Servertime>2019-09-22T20:13:46.44</Servertime>
+    <Traincode>E221 </Traincode>
+    <Stationfullname>Seapoint</Stationfullname>
+    <Stationcode>SEAPT</Stationcode>
+    <Querytime>20:13:46</Querytime>
+    <Traindate>22 Sep 2019</Traindate>
+    <Origin>Malahide</Origin>
+    <Destination>Bray</Destination>
+    <Origintime>20:10</Origintime>
+    <Destinationtime>21:18</Destinationtime>
+    <Status>En Route</Status>
+    <Lastlocation>Departed Malahide</Lastlocation>
+    <Duein>42</Duein>
+    <Late>1</Late>
+    <Exparrival>20:54</Exparrival>
+    <Expdepart>20:55</Expdepart>
+    <Scharrival>20:54</Scharrival>
+    <Schdepart>20:54</Schdepart>
+    <Direction>Southbound</Direction>
+    <Traintype>DART</Traintype>
+    <Locationtype>S</Locationtype>
+  </objStationData>
+  <objStationData>
+    <Servertime>2019-09-22T20:13:46.44</Servertime>
+    <Traincode>E112 </Traincode>
+    <Stationfullname>Seapoint</Stationfullname>
+    <Stationcode>SEAPT</Stationcode>
+    <Querytime>20:13:46</Querytime>
+    <Traindate>22 Sep 2019</Traindate>
+    <Origin>Howth</Origin>
+    <Destination>Greystones</Destination>
+    <Origintime>20:35</Origintime>
+    <Destinationtime>21:54</Destinationtime>
+    <Status>No Information</Status>
+    <Lastlocation />
+    <Duein>67</Duein>
+    <Late>0</Late>
+    <Exparrival>21:19</Exparrival>
+    <Expdepart>21:20</Expdepart>
+    <Scharrival>21:19</Scharrival>
+    <Schdepart>21:20</Schdepart>
+    <Direction>Southbound</Direction>
+    <Traintype>DART</Traintype>
+    <Locationtype>S</Locationtype>
+  </objStationData>
+</ArrayOfObjStationData>
