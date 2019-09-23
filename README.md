@@ -3,6 +3,7 @@
 Node.js module with utility functions to get real time data for Irish public transport (Irish Rail, Luas, Dublin Bus)
 
 [![npm version](https://badge.fury.io/js/public-transport-ireland.svg)](https://badge.fury.io/js/public-transport-ireland)
+[![Monthly Downloads](https://img.shields.io/npm/dt/public-transport-ireland)](https://badge.fury.io/js/public-transport-ireland)
 [![Build Status](https://dev.azure.com/loige/loige/_apis/build/status/lmammino.public-transport-ireland?branchName=master)](https://dev.azure.com/loige/loige/_build/latest?definitionId=2&branchName=master)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
