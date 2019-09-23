@@ -1,6 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`It should ge all stops 1`] = `
+exports[`It should get a stop status 1`] = `
+Array [
+  Object {
+    "direction": "Inbound",
+    "forecastsEnabled": true,
+    "operatingNormally": true,
+    "statusMessage": "Services operating normally",
+  },
+  Object {
+    "direction": "Outbound",
+    "forecastsEnabled": true,
+    "operatingNormally": true,
+    "statusMessage": "Services operating normally",
+  },
+]
+`;
+
+exports[`It should get all stops 1`] = `
 Array [
   Object {
     "code": "TPT",
@@ -69,7 +86,7 @@ Array [
 ]
 `;
 
-exports[`It should ge all stops for a line 1`] = `
+exports[`It should get all stops for a line 1`] = `
 Array [
   Object {
     "code": "BRO",
@@ -102,6 +119,58 @@ Array [
     "outboundOperatingNormally": true,
     "outboundStatusMessage": "Services operating normally",
     "pronunciation": "Cabra",
+  },
+]
+`;
+
+exports[`It should get real time information for a stop 1`] = `
+Array [
+  Object {
+    "arrivingInMinutes": 9,
+    "destination": "Broombridge",
+    "direction": "Inbound",
+    "expectedArrivalTime": "2019-09-23T17:57:19.000+01:00",
+  },
+  Object {
+    "arrivingInMinutes": 17,
+    "destination": "Broombridge",
+    "direction": "Inbound",
+    "expectedArrivalTime": "2019-09-23T18:05:19.000+01:00",
+  },
+  Object {
+    "arrivingInMinutes": 0,
+    "destination": "Sandyford",
+    "direction": "Outbound",
+    "expectedArrivalTime": "2019-09-23T17:48:19.000+01:00",
+  },
+  Object {
+    "arrivingInMinutes": 9,
+    "destination": "Sandyford",
+    "direction": "Outbound",
+    "expectedArrivalTime": "2019-09-23T17:57:19.000+01:00",
+  },
+  Object {
+    "arrivingInMinutes": 17,
+    "destination": "Sandyford",
+    "direction": "Outbound",
+    "expectedArrivalTime": "2019-09-23T18:05:19.000+01:00",
+  },
+]
+`;
+
+exports[`It should get real time information for a stop filtering by a given direction 1`] = `
+Array [
+  Object {
+    "arrivingInMinutes": 9,
+    "destination": "Broombridge",
+    "direction": "Inbound",
+    "expectedArrivalTime": "2019-09-23T17:57:19.000+01:00",
+  },
+  Object {
+    "arrivingInMinutes": 17,
+    "destination": "Broombridge",
+    "direction": "Inbound",
+    "expectedArrivalTime": "2019-09-23T18:05:19.000+01:00",
   },
 ]
 `;

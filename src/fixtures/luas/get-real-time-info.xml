@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stopInfo created="2019-09-23T17:48:19" stop="Dominick" stopAbv="DOM">
+  <message>Green Line services operating normally</message>
+  <direction name="Inbound" statusMessage="Services operating normally" forecastsEnabled="True" operatingNormally="True">
+    <tram dueMins="9" destination="Broombridge" />
+    <tram dueMins="17" destination="Broombridge" />
+  </direction>
+  <direction name="Outbound" statusMessage="Services operating normally" forecastsEnabled="True" operatingNormally="True">
+    <tram dueMins="DUE" destination="Sandyford" />
+    <tram dueMins="9" destination="Sandyford" />
+    <tram dueMins="17" destination="Sandyford" />
+  </direction>
+</stopInfo>

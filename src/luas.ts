@@ -1,6 +1,7 @@
 /* eslint no-unused-vars: "off" */
 
 import got from 'got'
+import { DateTime } from 'luxon'
 import { parseXml } from './utils/parse-xml'
 
 const SERVICE_URI = 'http://luasforecasts.rpa.ie/xml/get.ashx'
@@ -8,6 +9,11 @@ const SERVICE_URI = 'http://luasforecasts.rpa.ie/xml/get.ashx'
 export enum Line {
   RED = 'Luas Red Line',
   GREEN = 'Luas Green Line'
+}
+
+export enum Direction {
+  INBOUND = 'Inbound',
+  OUTBOUND = 'Outbound'
 }
 
 interface AllStopsResponse {
@@ -31,6 +37,31 @@ interface AllStopsResponse {
           inboundStatusMessage: string
           inboundOperatingNormally: string // "True" or "False"
           inboundForecastsEnabled: string // "True" or "False"
+        }
+      }>
+    }>
+  }
+}
+
+interface StopRealTimeInfoResponse {
+  stopInfo: {
+    $: {
+      created: string
+      stop: string
+      stopAbv: string
+    }
+    message: Array<string>
+    direction: Array<{
+      $: {
+        name: Direction
+        statusMessage: string
+        forecastsEnabled: string // "True" or "False"
+        operatingNormally: string // "True" or "False"
+      }
+      tram: Array<{
+        $: {
+          dueMins: string // number as string or "DUE"
+          destination: string
         }
       }>
     }>
@@ -68,6 +99,28 @@ interface Stop {
   inboundForecastsEnabled: boolean
 }
 
+interface Tram {
+  /** The tram direction */
+  direction: Direction,
+  /** the tram destination name */
+  destination: string
+  /** The minutes left before the tram arrives (e.g. 23) */
+  arrivingInMinutes: number
+  /** The train expected arrival time to the stop in ISO-8601 (e.g. "2019-09-22T20:36:00.000+01:00") */
+  expectedArrivalTime: string
+}
+
+interface StopStatus {
+  /** The direction of the status message */
+  direction: Direction
+  /** The status message */
+  statusMessage: string
+  /** boolean indicating whether forecasts are enabled */
+  forecastsEnabled: boolean
+  /** boolean indicating whether service is operating normally */
+  operatingNormally: boolean
+}
+
 /**
  * Get all the available luas stop. Can filter by line
  */
@@ -80,8 +133,9 @@ export async function getStops (lineFilter?: Line) : Promise<Array<Stop>> {
     }
   })
 
-  const stops : Array<Stop> = []
   const document : AllStopsResponse = await parseXml(response.body)
+  const stops : Array<Stop> = []
+
   document.stops.line.forEach((line) => {
     line.stop.forEach((stop) => {
       stops.push({
@@ -113,13 +167,68 @@ export async function getStops (lineFilter?: Line) : Promise<Array<Stop>> {
 /**
  * get realtime information for a given stop
  */
-export async function getRealTimeInfo (stop: string) {
-  // TODO
-  console.log(stop)
+export async function getRealTimeInfo (stopCode: string, directionFilter?: Direction): Promise<Array<Tram>> {
+  const response = await got(SERVICE_URI, {
+    query: {
+      action: 'forecast',
+      stop: stopCode,
+      ver: 2,
+      encrypt: false
+    }
+  })
+
+  const document: StopRealTimeInfoResponse = await parseXml(response.body)
+
+  const trams : Array<Tram> = []
+
+  const requestTime = DateTime.fromISO(document.stopInfo.$.created, { zone: 'Europe/Dublin' })
+
+  document.stopInfo.direction.forEach((direction) => {
+    direction.tram.forEach((tram) => {
+      const dueMins = tram.$.dueMins === 'DUE' ? 0 : Number(tram.$.dueMins)
+      trams.push({
+        direction: direction.$.name,
+        destination: tram.$.destination,
+        arrivingInMinutes: dueMins,
+        expectedArrivalTime: requestTime.plus({ minutes: dueMins }).toString()
+      })
+    })
+  })
+
+  if (directionFilter) {
+    return trams.filter(tram => tram.direction === directionFilter)
+  }
+
+  return trams
+}
+
+/**
+ * Get the status of a given stop
+ */
+export async function getStopStatus (stopCode: string): Promise<Array<StopStatus>> {
+  const response = await got(SERVICE_URI, {
+    query: {
+      action: 'forecast',
+      stop: stopCode,
+      ver: 2,
+      encrypt: false
+    }
+  })
+
+  const document: StopRealTimeInfoResponse = await parseXml(response.body)
+
+  return document.stopInfo.direction.map((direction) => ({
+    direction: direction.$.name,
+    statusMessage: direction.$.statusMessage,
+    forecastsEnabled: direction.$.forecastsEnabled === 'True',
+    operatingNormally: direction.$.operatingNormally === 'True'
+  }))
 }
 
 export default {
   getStops,
   getRealTimeInfo,
-  Line
+  getStopStatus,
+  Line,
+  Direction
 }
