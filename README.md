@@ -33,7 +33,7 @@ console.log(publicTransport.dublinBus.getStops) // function
 However, since every sub module might allocate resources (e.g. SOAP or HTTP clients) as soon as they are imported, it is recommended to directly import the sub modules that you want to use:
 
 ```javascript
-onst dublinBus = require('public-transport-ireland/dublin-bus')
+const dublinBus = require('public-transport-ireland/dublin-bus')
 
 // access dublinBus.getStops
 console.log(dublinBus.getStops) // function
