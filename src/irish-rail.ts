@@ -120,8 +120,8 @@ export async function getStations () : Promise<Array<Station>> {
 
   const stations = document.ArrayOfObjStation.objStation.map((station) => ({
     id: Number(station.StationId[0]),
-    code: station.StationCode[0],
-    name: station.StationDesc[0],
+    code: station.StationCode[0].trim(),
+    name: station.StationDesc[0].trim(),
     longitude: Number(station.StationLongitude[0]),
     latitude: Number(station.StationLatitude[0])
   }))
