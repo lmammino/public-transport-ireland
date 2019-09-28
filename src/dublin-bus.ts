@@ -61,6 +61,8 @@ interface RealtimeData {
 interface Stop {
   /** The stop number (e.g. 17) */
   id: number
+  /** The stop code (e.g. 17), an alias for id */
+  code: number
   /** The longitude of the stop as float (e.g. -6.263668) */
   longitude: number
   /** The latitude of the stop as float (e.g. 53.399107) */
@@ -106,6 +108,7 @@ export async function getStops () : Promise<Array<Stop>> {
 
   const stops = destinationData.map(dest => ({
     id: dest.StopNumber,
+    code: dest.StopNumber,
     longitude: dest.Longitude,
     latitude: dest.Latitude,
     description: dest.Description

@@ -70,7 +70,7 @@ const { getStops, getRealTimeInfo } = require('public-transport-ireland/dublin-b
 async function main () {
   const allStops = await getStops()
   console.log('allStops', allStops)
-  const realTimeDataForFirstStop = await getRealTimeInfo(allStops[0].id)
+  const realTimeDataForFirstStop = await getRealTimeInfo(allStops[0].code)
   console.log('realTimeDataForFirstStop', realTimeDataForFirstStop)
 }
 
@@ -83,12 +83,14 @@ This will print:
 allStops [
   {
     id: 2,
+    code: 2,
     longitude: -6.263695,
     latitude: 53.352241,
     description: 'Parnell Square, Parnell Street'
   },
   {
     id: 3,
+    code: 3,
     longitude: -6.263783,
     latitude: 53.352307,
     description: 'Parnell Square, Granby Place'

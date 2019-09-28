@@ -1,23 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports['It should get all stops 1'] = `
+exports[`It should get all stops 1`] = `
 Array [
   Object {
+    "code": 22,
     "description": "Ballymun Road, Nursing Home",
     "id": 22,
     "latitude": 53.399092,
     "longitude": -6.264086,
   },
   Object {
+    "code": 17,
     "description": "Ballymun Road, Nursing Home",
     "id": 17,
     "latitude": 53.399107,
     "longitude": -6.263668,
   },
 ]
-`
+`;
 
-exports['It should get real time information for a stop 1'] = `
+exports[`It should get real time information for a stop 1`] = `
 Array [
   Object {
     "arrivingInMinutes": 0,
@@ -41,4 +43,4 @@ Array [
     "vehicleAtStop": false,
   },
 ]
-`
+`;
