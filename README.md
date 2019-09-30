@@ -83,14 +83,14 @@ This will print:
 allStops [
   {
     id: 2,
-    code: 2,
+    code: "2",
     longitude: -6.263695,
     latitude: 53.352241,
     description: 'Parnell Square, Parnell Street'
   },
   {
     id: 3,
-    code: 3,
+    code: "3",
     longitude: -6.263783,
     latitude: 53.352307,
     description: 'Parnell Square, Granby Place'
@@ -102,6 +102,7 @@ realTimeDataForFirstStop [
   {
     lineName: '46A',
     destinationName: 'Phoenix Pk via Donnybrook',
+    destination: '46A - Phoenix Pk via Donnybrook',
     expectedArrivalTime: '2019-09-22T16:59:59.000+01:00',
     vehicleAtStop: false,
     arrivingInMinutes: 5
@@ -109,6 +110,7 @@ realTimeDataForFirstStop [
   {
     lineName: '38',
     destinationName: 'Damastown via Corduff',
+    destination: '38 - Damastown via Corduff',
     expectedArrivalTime: '2019-09-22T17:04:05.000+01:00',
     vehicleAtStop: false,
     arrivingInMinutes: 9

@@ -50,6 +50,8 @@ interface RealtimeData {
   lineName: string
   /** The name of the destination (e.g. "St Pappin's Rd via Drumcondra") */
   destinationName: string
+  /** The line number and the name of the destination (e.g. "11 - St Pappin's Rd via Drumcondra") */
+  destination: string
   /** A timestamp in ISO-8601 representing the expected arrival time (e.g. "2019-09-21T17:21:33.927+01:00") **/
   expectedArrivalTime: string
   /** The number of minutes for the bus to arrive at the stop (e.g. 22) */
@@ -61,8 +63,8 @@ interface RealtimeData {
 interface Stop {
   /** The stop number (e.g. 17) */
   id: number
-  /** The stop code (e.g. 17), an alias for id */
-  code: number
+  /** The stop code (e.g. "17"), an alias for id (as a string) */
+  code: string
   /** The longitude of the stop as float (e.g. -6.263668) */
   longitude: number
   /** The latitude of the stop as float (e.g. 53.399107) */
@@ -88,6 +90,7 @@ export async function getRealTimeInfo (stopId: number): Promise<Array<RealtimeDa
     return {
       lineName: stop.MonitoredVehicleJourney_PublishedLineName,
       destinationName: stop.MonitoredVehicleJourney_DestinationName,
+      destination: `${stop.MonitoredVehicleJourney_PublishedLineName} - ${stop.MonitoredVehicleJourney_DestinationName}`,
       expectedArrivalTime: expectedArrivalTime.toString(),
       vehicleAtStop: stop.MonitoredCall_VehicleAtStop !== 'false',
       arrivingInMinutes
@@ -108,7 +111,7 @@ export async function getStops () : Promise<Array<Stop>> {
 
   const stops = destinationData.map(dest => ({
     id: dest.StopNumber,
-    code: dest.StopNumber,
+    code: String(dest.StopNumber),
     longitude: dest.Longitude,
     latitude: dest.Latitude,
     description: dest.Description

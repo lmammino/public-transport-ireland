@@ -3,14 +3,14 @@
 exports[`It should get all stops 1`] = `
 Array [
   Object {
-    "code": 22,
+    "code": "22",
     "description": "Ballymun Road, Nursing Home",
     "id": 22,
     "latitude": 53.399092,
     "longitude": -6.264086,
   },
   Object {
-    "code": 17,
+    "code": "17",
     "description": "Ballymun Road, Nursing Home",
     "id": 17,
     "latitude": 53.399107,
@@ -23,6 +23,7 @@ exports[`It should get real time information for a stop 1`] = `
 Array [
   Object {
     "arrivingInMinutes": 0,
+    "destination": "11 - St Pappin's Rd via Drumcondra",
     "destinationName": "St Pappin's Rd via Drumcondra",
     "expectedArrivalTime": "2019-09-21T17:21:33.927+01:00",
     "lineName": "11",
@@ -30,6 +31,7 @@ Array [
   },
   Object {
     "arrivingInMinutes": 35,
+    "destination": "11 - St Pappin's Rd via Drumcondra",
     "destinationName": "St Pappin's Rd via Drumcondra",
     "expectedArrivalTime": "2019-09-21T17:55:51.000+01:00",
     "lineName": "11",
@@ -37,6 +39,7 @@ Array [
   },
   Object {
     "arrivingInMinutes": 59,
+    "destination": "11 - St Pappin's Rd via Drumcondra",
     "destinationName": "St Pappin's Rd via Drumcondra",
     "expectedArrivalTime": "2019-09-21T18:20:01.000+01:00",
     "lineName": "11",
