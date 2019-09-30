@@ -17,6 +17,7 @@
   ],
   "exclude": [
     "src/**/*test.ts",
-    "src/coverage"
+    "src/coverage",
+    "dist"
   ],
 }
