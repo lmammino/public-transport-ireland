@@ -1,6 +1,4 @@
-'use strict'
+import irishRail from './dist/irish-rail.js'
 
 /// <reference types="./dist/irish-rail.d.ts" />
-const irishRail = require('./dist/irish-rail.js')
-
-module.exports = irishRail
+export default irishRail
