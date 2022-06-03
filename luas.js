@@ -1,6 +1,4 @@
-'use strict'
+import luas from './dist/luas.js'
 
 /// <reference types="./dist/luas.d.ts" />
-const luas = require('./dist/luas.js')
-
-module.exports = luas
+export default luas

@@ -67,7 +67,7 @@ interface AllTrainsResponse {
   }
 }
 
-interface Station {
+export interface Station {
   /** The station id (e.g. 228) */
   id: number
   /** The station code (e.g. "BFSTC") */
@@ -80,7 +80,7 @@ interface Station {
   longitude: number
 }
 
-interface Train {
+export interface Train {
   /** The train code (e.g. "E811") */
   code: string
   /** The train origin station (e.g. "Greystones") */
@@ -118,7 +118,7 @@ export async function getStations () : Promise<Array<Station>> {
   const response = await got('http://api.irishrail.ie/realtime/realtime.asmx/getAllStationsXML')
   const document : AllStationsResponse = await parseXml(response.body)
 
-  const stations = document.ArrayOfObjStation.objStation.map((station) => ({
+  const stations = document?.ArrayOfObjStation?.objStation?.map((station) => ({
     id: Number(station.StationId[0]),
     code: station.StationCode[0].trim(),
     name: station.StationDesc[0].trim(),
@@ -126,7 +126,7 @@ export async function getStations () : Promise<Array<Station>> {
     latitude: Number(station.StationLatitude[0])
   }))
 
-  return stations
+  return stations || []
 }
 
 function getISOTimeForHHmm (serverTime : DateTime, time: string) : string {
@@ -141,7 +141,7 @@ function getISOTimeForHHmm (serverTime : DateTime, time: string) : string {
  */
 export async function getRealTimeInfo (stationCode: string, direction?: Direction): Promise<Array<Train>> {
   const response = await got('http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByCodeXML', {
-    query: {
+    searchParams: {
       StationCode: stationCode
     }
   })

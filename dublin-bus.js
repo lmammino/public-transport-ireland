@@ -1,6 +1,4 @@
-'use strict'
+import dublinBus from './dist/dublin-bus.js'
 
 /// <reference types="./dist/dublin-bus.d.ts" />
-const dublinBus = require('./dist/dublin-bus.js')
-
-module.exports = dublinBus
+export default dublinBus

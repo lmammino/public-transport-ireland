@@ -1,13 +1,19 @@
 {
   "compilerOptions": {
-    "target": "es2017",
+    "lib": [
+      "es2021"
+    ],
+    "moduleResolution": "node",
+    "module": "ES2022",
+    "target": "ES2022",
+    "strict": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "module": "commonjs",
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
     "outDir": "./dist",
     "declaration": true,
     "sourceMap": true,
-    "types" : [
+    "types": [
       "node",
       "jest"
     ],
@@ -18,6 +24,7 @@
   "exclude": [
     "src/**/*test.ts",
     "src/coverage",
-    "dist"
+    "dist",
+    "node_modules"
   ],
 }

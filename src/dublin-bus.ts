@@ -6,7 +6,7 @@ import { createClientAsync } from 'soap'
 const WSDL_URL = 'http://rtpi.dublinbus.ie/DublinBusRTPIService.asmx?WSDL'
 const clientPromise = createClientAsync(WSDL_URL)
 
-interface GetRealTimeStopDataOptions {
+export interface GetRealTimeStopDataOptions {
   readonly stopId: number
   readonly forceRefresh: boolean
 }
@@ -40,12 +40,7 @@ interface GetAllDestinationsResponse {
   }
 }
 
-interface SoapClient {
-  GetRealTimeStopDataAsync (options: GetRealTimeStopDataOptions) : Promise<[GetRealTimeStopDataResponse]>
-  GetAllDestinationsAsync () : Promise<[GetAllDestinationsResponse]>
-}
-
-interface RealtimeData {
+export interface RealtimeData {
   /** The name of the bus line (e.g. "11") */
   lineName: string
   /** The name of the destination (e.g. "St Pappin's Rd via Drumcondra") */
@@ -60,7 +55,7 @@ interface RealtimeData {
   vehicleAtStop: boolean
 }
 
-interface Stop {
+export interface Stop {
   /** The stop number (e.g. 17) */
   id: number
   /** The stop code (e.g. "17"), an alias for id (as a string) */
@@ -77,15 +72,16 @@ interface Stop {
  * Get real time information for a given bus stop
  */
 export async function getRealTimeInfo (stopId: number): Promise<Array<RealtimeData>> {
-  const client: SoapClient = await clientPromise
+  const client = await clientPromise
 
-  const [result] = await client.GetRealTimeStopDataAsync({ stopId, forceRefresh: true })
-  const stopData = result.GetRealTimeStopDataResult.diffgram.DocumentElement.StopData
+  const result: [GetRealTimeStopDataResponse] = await client.GetRealTimeStopDataAsync({ stopId, forceRefresh: true })
+  const stopData = result[0].GetRealTimeStopDataResult.diffgram.DocumentElement.StopData
 
-  const realTimeData : Array<RealtimeData> = stopData.map(stop => {
+  const realTimeData : Array<RealtimeData> = stopData.map((stop) => {
     const requestTime = DateTime.fromISO(stop.ServiceDelivery_ResponseTimestamp, { zone: 'Europe/Dublin' })
     const expectedArrivalTime = DateTime.fromISO(stop.MonitoredCall_ExpectedArrivalTime, { zone: 'Europe/Dublin' })
-    const arrivingInMinutes = Math.ceil(expectedArrivalTime.diff(requestTime, 'minutes').toObject().minutes)
+    const arrivingInMinutes = expectedArrivalTime.diff(requestTime, 'minutes').toObject().minutes || 0
+    const arrivingInMinutesApprox = Math.ceil(arrivingInMinutes)
 
     return {
       lineName: stop.MonitoredVehicleJourney_PublishedLineName,
@@ -93,7 +89,7 @@ export async function getRealTimeInfo (stopId: number): Promise<Array<RealtimeDa
       destination: `${stop.MonitoredVehicleJourney_PublishedLineName} - ${stop.MonitoredVehicleJourney_DestinationName}`,
       expectedArrivalTime: expectedArrivalTime.toString(),
       vehicleAtStop: stop.MonitoredCall_VehicleAtStop !== 'false',
-      arrivingInMinutes
+      arrivingInMinutes: arrivingInMinutesApprox
     }
   })
 
@@ -104,10 +100,10 @@ export async function getRealTimeInfo (stopId: number): Promise<Array<RealtimeDa
  * Get information about all available stops
  */
 export async function getStops () : Promise<Array<Stop>> {
-  const client : SoapClient = await clientPromise
+  const client = await clientPromise
 
-  const [result] = await client.GetAllDestinationsAsync()
-  const destinationData = result.GetAllDestinationsResult.Destinations.Destination
+  const result: [GetAllDestinationsResponse] = await client.GetAllDestinationsAsync()
+  const destinationData = result[0].GetAllDestinationsResult.Destinations.Destination
 
   const stops = destinationData.map(dest => ({
     id: dest.StopNumber,

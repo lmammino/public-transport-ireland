@@ -74,7 +74,7 @@ interface StopRealTimeInfoResponse {
   }
 }
 
-interface Stop {
+export interface Stop {
   /** The stop line (e.g "Luas Red Line") */
   line: Line
   /** The stop name (e.g "Saggart") */
@@ -105,7 +105,7 @@ interface Stop {
   inboundForecastsEnabled: boolean
 }
 
-interface Tram {
+export interface Tram {
   /** The tram direction */
   direction: Direction,
   /** the tram destination name */
@@ -116,7 +116,7 @@ interface Tram {
   expectedArrivalTime: string
 }
 
-interface StopStatus {
+export interface StopStatus {
   /** The direction of the status message */
   direction: Direction
   /** The status message */
@@ -132,7 +132,7 @@ interface StopStatus {
  */
 export async function getStops (lineFilter?: Line) : Promise<Array<Stop>> {
   const response = await got(SERVICE_URI, {
-    query: {
+    searchParams: {
       action: 'list',
       ver: 2,
       encrypt: 'false' // yes, if you don't pass this one the response is encrypted -.-
@@ -175,7 +175,7 @@ export async function getStops (lineFilter?: Line) : Promise<Array<Stop>> {
  */
 export async function getRealTimeInfo (stopCode: string, directionFilter?: Direction): Promise<Array<Tram>> {
   const response = await got(SERVICE_URI, {
-    query: {
+    searchParams: {
       action: 'forecast',
       stop: stopCode,
       ver: 2,
@@ -213,7 +213,7 @@ export async function getRealTimeInfo (stopCode: string, directionFilter?: Direc
  */
 export async function getStopStatus (stopCode: string): Promise<Array<StopStatus>> {
   const response = await got(SERVICE_URI, {
-    query: {
+    searchParams: {
       action: 'forecast',
       stop: stopCode,
       ver: 2,
