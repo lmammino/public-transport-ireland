@@ -15,7 +15,7 @@
   ],
   "types": "./lib/index.d.ts",
   "dependencies": {
-    "got": "^9.6.0",
+    "got": "^11.8.5",
     "luxon": "^1.18.0",
     "soap": "^0.29.0",
     "xml2js": "^0.4.22"
